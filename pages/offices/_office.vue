@@ -1,6 +1,6 @@
 <template>
     <p v-if="$fetchState.pending">Loading...</p>
-    <p v-else-if="$fetchState.error">Error! :(</p>
+    <p v-else-if="$fetchState.error">Error from office view! :(</p>
     <div v-else class="flex">
         <div class="w-1/2 h-80 relative overflow-hidden rounded-lg">
             <img :src="office.images[0].path" class="object-cover w-full h-full"></img>

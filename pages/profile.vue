@@ -9,7 +9,7 @@
         </div>
 
         <p v-if="$fetchState.pending">Loading...</p>
-        <p v-else-if="$fetchState.error">Error! :(</p>
+        <p v-else-if="$fetchState.error">Error from profile view! :(</p>
         <template v-else>
             <template v-if="reservations.length">
                 <div v-for="(reservation, index) in reservations"

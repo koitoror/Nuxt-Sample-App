@@ -1,7 +1,7 @@
 <template>
     <div>
         <p v-if="$fetchState.pending">Loading...</p>
-        <p v-else-if="$fetchState.error">Error! :(</p>
+        <p v-else-if="$fetchState.error">Error from Home Vue! :(</p>
         <template v-else>
             <div v-for="(office, index) in offices" :key="office.id"
                  :class="`flex ${index + 1 == offices.length ? '' : 'pb-10 mb-10 border-b'}`">
