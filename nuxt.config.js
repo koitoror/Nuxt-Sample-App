@@ -1,79 +1,65 @@
+import colors from 'vuetify/es5/util/colors'
+
 export default {
-    head: {
-        title: 'ergodnc',
-        htmlAttrs: {
-            lang: 'en'
-        },
-        bodyAttrs: {
-            class: 'bg-gray-100'
-        },
-        meta: [
-            {charset: 'utf-8'},
-            {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-            {hid: 'description', name: 'description', content: ''},
-            {name: 'format-detection', content: 'telephone=no'}
-        ],
-        link: [
-            {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
-            {
-                rel: 'stylesheet',
-                href: 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap'
-            }
-        ]
+  // Global page headers: https://go.nuxtjs.dev/config-head
+  head: {
+    titleTemplate: '%s - nuxt-crud',
+    title: 'nuxt-crud',
+    htmlAttrs: {
+      lang: 'en'
     },
-
-    css: [],
-
-    plugins: [],
-
-    components: true,
-
-    buildModules: [
-        '@nuxtjs/eslint-module',
-        '@nuxtjs/tailwindcss'
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: '' },
+      { name: 'format-detection', content: 'telephone=no' }
     ],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ]
+  },
 
-    modules: [
-        '@nuxtjs/axios',
-        '@nuxtjs/auth-next'
-    ],
+  // Global CSS: https://go.nuxtjs.dev/config-css
+  css: [
+  ],
 
-    auth: {
-        strategies: {
-            cookie: {
-                endpoints: {
-                    csrf: {
-                        url: '/sanctum/csrf-cookie'
-                    },
-                    login: {
-                        url: '/login'
-                    },
-                    logout: {
-                        url: '/logout'
-                    },
-                    user: {
-                        url: '/user'
-                    }
-                },
-                user: {
-                    property: 'data'
-                },
-            }
-        },
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+  plugins: [
+  ],
 
-        redirect: {
-            login: '/login',
-            logout: '/login',
-            home: '/'
-        },
+  // Auto import components: https://go.nuxtjs.dev/config-components
+  components: true,
 
-        plugins: ['~/plugins/axios'],
-    },
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  buildModules: [
+    // https://go.nuxtjs.dev/vuetify
+    '@nuxtjs/vuetify',
+  ],
 
-    axios: {
-        baseURL: 'http://api.ergodnc.test',
-        credentials: true,
-    },
+  // Modules: https://go.nuxtjs.dev/config-modules
+  modules: [
+  ],
 
-    build: {},
+  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
+  vuetify: {
+    customVariables: ['~/assets/variables.scss'],
+    theme: {
+      dark: true,
+      themes: {
+        dark: {
+          primary: colors.blue.darken2,
+          accent: colors.grey.darken3,
+          secondary: colors.amber.darken3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3
+        }
+      }
+    }
+  },
+
+  // Build Configuration: https://go.nuxtjs.dev/config-build
+  build: {
+  }
 }

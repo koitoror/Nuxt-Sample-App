@@ -1,4 +1,4 @@
-# nuxtapp
+# nuxt-crud
 
 ## Build Setup
 
