@@ -208,6 +208,7 @@
           </template>
         
         </v-col>
+
       </v-row>
 
     </v-container>
@@ -241,7 +242,7 @@ export default {
           title: "Candidate 2",
           value: "45",
           subtitle: "image ...",
-          size: "10M"
+          size: "8M"
         },
         {
           icon: "mdi-account-check-outline",
@@ -249,16 +250,15 @@ export default {
           title: "Candidate 3",
           value: "20",
           subtitle: "image ...",
-          size: "10M"
+          size: "4M"
         },
         {
           icon: "mdi-account-check-outline",
           iconColor: "light-blue",
           title: "Candidate 4",
           value: "10",
-
           subtitle: "image ...",
-          size: "10M"
+          size: "2M"
         }
       ]
     };
