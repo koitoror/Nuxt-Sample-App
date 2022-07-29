@@ -12,6 +12,8 @@
           </v-layout>
         </v-col>
       </v-row>
+      <Countdown :date="end" @onFinish="finish()"></Countdown>
+
       <v-row>
         <v-col>
           <card-box
@@ -133,12 +135,16 @@
 
 <script>
 import CardBox from "~/components/CardBox";
+import Countdown from "~/components/Countdown";
 export default {
   components: {
-    CardBox
+    CardBox,
+    Countdown
+
   },
   data() {
     return {
+      end: new Date("2022-08-09T05:30:00"),
       itemsRecents: [
         {
           icon: "mdi-folder",
@@ -170,6 +176,11 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    finish() {
+      console.log("finish");
+    },
   }
 };
 </script>
