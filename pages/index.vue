@@ -174,39 +174,19 @@
         </v-col>
 
         <v-col>
-          <template>
-            <div>
-              <v-progress-linear
-                value="60"
-                height="10"
-                striped
-                color="deep-orange"
-              ></v-progress-linear>
-              <br>
-              <v-progress-linear
-                height="10"
-                value="45"
-                striped
-                color="lime"
-              ></v-progress-linear>
-              <br>
-              <v-progress-linear
-                color="light-green darken-4"
-                height="10"
-                value="20"
-                striped
-              ></v-progress-linear>
-              <br>
-              <v-progress-linear
-                color="light-blue"
-                height="10"
-                value="10"
-                striped
-              ></v-progress-linear>
-              
-            </div>
-          </template>
-        
+          <v-layout wrap>
+            <h3 class="grey--text text--darken-3">Projected Winner</h3>
+            <v-spacer></v-spacer>
+            <v-btn icon>
+              <v-icon>mdi-arrow-down</v-icon>
+            </v-btn>
+          </v-layout>
+
+          <v-list class="pa-0">
+            
+          <Winner></Winner>
+
+          </v-list>
         </v-col>
 
       </v-row>
@@ -218,6 +198,7 @@
 <script>
 import CardBox from "~/components/CardBox";
 import Countdown from "~/components/Countdown";
+import Winner from "~/components/Winner";
 export default {
   components: {
     CardBox,

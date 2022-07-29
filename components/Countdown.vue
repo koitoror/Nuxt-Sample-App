@@ -50,6 +50,8 @@ export default {
     seconds () {
       if (this.secondCount < 0) return 0
       return this.secondCount % 60
+      return this.secondCount % 60
+
     },
     minutes () {
       if (this.secondCount < 0) return 0
