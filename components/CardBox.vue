@@ -31,7 +31,7 @@ export default {
     title:{type:String,default:'UnTitle'},
     fileSize:{type:String,default:'0'},
     fileCount:{type:String,default:'0 file'},
-    icon: {type:String,default: 'mdi-folder-open-outline'},
+    icon: {type:String,default: 'mdi-decagram-outline'},
     iconColor: {type:String,default: 'blue'},
     titleClass: {type:String,default: 'blue--text'}
   }

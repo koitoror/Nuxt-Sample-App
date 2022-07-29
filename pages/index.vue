@@ -228,7 +228,7 @@ export default {
       end: new Date("2022-08-09T05:30:00"),
       itemsRecents: [
         {
-          icon: "mdi-folder",
+          icon: "mdi-account-check-outline",
           iconColor: "deep-orange",
           title: "Candidate 1",
           value: "60",
@@ -236,7 +236,7 @@ export default {
           size: "10M"
         },
         {
-          icon: "mdi-folder",
+          icon: "mdi-account-check-outline",
           iconColor: "lime",
           title: "Candidate 2",
           value: "45",
@@ -244,7 +244,7 @@ export default {
           size: "10M"
         },
         {
-          icon: "mdi-folder",
+          icon: "mdi-account-check-outline",
           iconColor: "light-green darken-4",
           title: "Candidate 3",
           value: "20",
@@ -252,7 +252,7 @@ export default {
           size: "10M"
         },
         {
-          icon: "mdi-folder",
+          icon: "mdi-account-check-outline",
           iconColor: "light-blue",
           title: "Candidate 4",
           value: "10",
