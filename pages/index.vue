@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-container grid-list-xs fluid>
+
       <v-row>
         <v-col>
           <v-layout wrap>
@@ -12,7 +13,76 @@
           </v-layout>
         </v-col>
       </v-row>
-      <Countdown :date="end" @onFinish="finish()"></Countdown>
+
+      <v-row>
+        <v-col>
+          <card-box
+            title="Total Registered Voters"
+            fileCount="22,152,144"
+            fileSize="100 MB"
+            color="grey lighten-4"
+            flat
+          ></card-box>
+        </v-col>
+        <v-col>
+          <card-box
+            title="Total Votes Cast"
+            fileCount="0"
+            fileSize="100 MB"
+            color="grey lighten-4"
+            flat
+            iconColor="amber"
+            titleClass="amber--text"
+          ></card-box>
+        </v-col>
+
+        <v-col>
+          <card-box
+            title="Leading Candidate"
+            fileCount="Candidate 1"
+            fileSize="100 MB"
+            color="grey lighten-4"
+            flat
+            iconColor="pink"
+            titleClass="pink--text"
+          ></card-box>
+        </v-col>
+
+        <v-col>
+
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on, attrs }">
+
+              <card-box
+                dark
+                v-bind="attrs"
+                v-on="on"
+                title="Projected Winner"
+                fileCount="Candidate 1"
+                fileSize="100 MB"
+                color="grey lighten-4"
+                flat
+                iconColor="indigo"
+                titleClass="indigo--text"
+              ></card-box>
+
+            </template>
+            <span>After 50% of Registered Votes have been cast</span>
+          </v-tooltip>
+
+        </v-col>
+      </v-row>
+
+      <v-col>
+
+        <v-col class="text-center d-flex align-center justify-space-around">
+          <H2> Elections Countdown</H2>
+        </v-col>
+        <v-col>
+          <Countdown :date="end" @onFinish="finish()"></Countdown>
+        </v-col>
+      
+      </v-col>
 
       <v-row>
         <v-col>
@@ -77,6 +147,7 @@
                 <v-list-item-avatar size="48" color="grey lighten-3">
                   <v-icon :color="item.iconColor">{{ item.icon }}</v-icon>
                 </v-list-item-avatar>
+                
                 <v-list-item-content>
                   <v-list-item-title>
                     {{ item.title }}
@@ -85,50 +156,60 @@
                     {{ item.subtitle }}
                   </v-list-item-subtitle>
                 </v-list-item-content>
+                <v-progress-linear
+                  :value="item.value"
+                  height="10"
+                  striped
+                  :color="item.iconColor"
+                ></v-progress-linear>
                 <v-list-item-action>
                   <small class="grey--text">
                     {{item.size}}
                   </small>
                 </v-list-item-action>
+                
               </v-list-item>
             </template>
           </v-list>
         </v-col>
+
         <v-col>
-        <template>
-          <div>
-            <v-progress-linear
-              color="light-blue"
-              height="10"
-              value="10"
-              striped
-            ></v-progress-linear>
-            <br>
-            <v-progress-linear
-              color="light-green darken-4"
-              height="10"
-              value="20"
-              striped
-            ></v-progress-linear>
-            <br>
-            <v-progress-linear
-              height="10"
-              value="45"
-              striped
-              color="lime"
-            ></v-progress-linear>
-            <br>
-            <v-progress-linear
-              value="60"
-              height="10"
-              striped
-              color="deep-orange"
-            ></v-progress-linear>
-          </div>
-        </template>
+          <template>
+            <div>
+              <v-progress-linear
+                value="60"
+                height="10"
+                striped
+                color="deep-orange"
+              ></v-progress-linear>
+              <br>
+              <v-progress-linear
+                height="10"
+                value="45"
+                striped
+                color="lime"
+              ></v-progress-linear>
+              <br>
+              <v-progress-linear
+                color="light-green darken-4"
+                height="10"
+                value="20"
+                striped
+              ></v-progress-linear>
+              <br>
+              <v-progress-linear
+                color="light-blue"
+                height="10"
+                value="10"
+                striped
+              ></v-progress-linear>
+              
+            </div>
+          </template>
         
         </v-col>
       </v-row>
+
     </v-container>
   </div>
 </template>
@@ -148,31 +229,36 @@ export default {
       itemsRecents: [
         {
           icon: "mdi-folder",
-          iconColor: "green",
+          iconColor: "deep-orange",
           title: "Candidate 1",
+          value: "60",
           subtitle: "image ...",
-          size: "10MB"
+          size: "10M"
         },
         {
           icon: "mdi-folder",
-          iconColor: "blue",
+          iconColor: "lime",
           title: "Candidate 2",
+          value: "45",
           subtitle: "image ...",
-          size: "10MB"
+          size: "10M"
         },
         {
           icon: "mdi-folder",
-          iconColor: "green",
-          title: "Candidate 1",
+          iconColor: "light-green darken-4",
+          title: "Candidate 3",
+          value: "20",
           subtitle: "image ...",
-          size: "10MB"
+          size: "10M"
         },
         {
           icon: "mdi-folder",
-          iconColor: "blue",
-          title: "Candidate 2",
+          iconColor: "light-blue",
+          title: "Candidate 4",
+          value: "10",
+
           subtitle: "image ...",
-          size: "10MB"
+          size: "10M"
         }
       ]
     };
