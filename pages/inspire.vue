@@ -1,6 +1,6 @@
 <template>
-  <v-row>
-    <v-col class="text-center">
+  <v-layout>
+    <v-flex class="text-center">
       <img
         src="/v.png"
         alt="Vuetify.js"
@@ -14,12 +14,6 @@
           </small>
         </footer>
       </blockquote>
-    </v-col>
-  </v-row>
+    </v-flex>
+  </v-layout>
 </template>
-
-<script>
-export default {
-  name: 'InspirePage'
-}
-</script>
