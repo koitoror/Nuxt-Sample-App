@@ -5,7 +5,7 @@
         <div>
           <v-list-item>
             <v-list-item-title class="text-center">
-              Mr. <span class="grey--text">File</span>
+              Mr. <span class="grey--text">Elector</span>
             </v-list-item-title>
           </v-list-item>
         </div>

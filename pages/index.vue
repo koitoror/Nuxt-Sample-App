@@ -15,7 +15,7 @@
       <v-row>
         <v-col>
           <card-box
-            title="Design"
+            title="Presidential"
             fileCount="13 fies"
             fileSize="100 MB"
             color="grey lighten-4"
@@ -24,7 +24,7 @@
         </v-col>
         <v-col>
           <card-box
-            title="Images"
+            title="County"
             fileCount="13 fies"
             fileSize="100 MB"
             color="grey lighten-4"
@@ -36,7 +36,7 @@
 
         <v-col>
           <card-box
-            title="Media"
+            title="Constituency"
             fileCount="13 fies"
             fileSize="100 MB"
             color="grey lighten-4"
@@ -48,7 +48,7 @@
 
         <v-col>
           <card-box
-            title="Portfolio"
+            title="Ward"
             fileCount="13 fies"
             fileSize="100 MB"
             color="grey lighten-4"
@@ -62,7 +62,7 @@
       <v-row>
         <v-col>
           <v-layout wrap>
-            <h3 class="grey--text text--darken-3">Recent File</h3>
+            <h3 class="grey--text text--darken-3">Votes By Candidate</h3>
             <v-spacer></v-spacer>
             <v-btn icon>
               <v-icon>mdi-arrow-right</v-icon>
@@ -110,14 +110,28 @@ export default {
         {
           icon: "mdi-folder",
           iconColor: "green",
-          title: "Text",
+          title: "Candidate 1",
           subtitle: "image ...",
           size: "10MB"
         },
         {
           icon: "mdi-folder",
           iconColor: "blue",
-          title: "Text",
+          title: "Candidate 2",
+          subtitle: "image ...",
+          size: "10MB"
+        },
+        {
+          icon: "mdi-folder",
+          iconColor: "green",
+          title: "Candidate 1",
+          subtitle: "image ...",
+          size: "10MB"
+        },
+        {
+          icon: "mdi-folder",
+          iconColor: "blue",
+          title: "Candidate 2",
           subtitle: "image ...",
           size: "10MB"
         }
