@@ -59,6 +59,8 @@ export default {
     }
   },
 
+  target: 'static', // default is 'server'
+  
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
