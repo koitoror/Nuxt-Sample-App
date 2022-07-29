@@ -36,7 +36,7 @@
                   <img src="@/static/icon.png" alt="alt" />
                 </v-avatar>
                 <p class="pa-2">
-                  Mark AI
+                  Sphere Logic AI
                 </p>
               </div>
             </v-list-item-content>

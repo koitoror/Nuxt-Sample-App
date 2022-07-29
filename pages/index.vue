@@ -4,7 +4,7 @@
       <v-row>
         <v-col>
           <v-layout wrap>
-            <h3 class="title grey--text">My Folder</h3>
+            <h3 class="title grey--text">National</h3>
             <v-spacer></v-spacer>
             <v-btn icon>
               <v-icon>mdi-arrow-right</v-icon>
@@ -16,7 +16,7 @@
         <v-col>
           <card-box
             title="Presidential"
-            fileCount="13 fies"
+            fileCount="1 directory"
             fileSize="100 MB"
             color="grey lighten-4"
             flat
@@ -25,7 +25,7 @@
         <v-col>
           <card-box
             title="County"
-            fileCount="13 fies"
+            fileCount="47 directories"
             fileSize="100 MB"
             color="grey lighten-4"
             flat
@@ -37,7 +37,7 @@
         <v-col>
           <card-box
             title="Constituency"
-            fileCount="13 fies"
+            fileCount="290 directories"
             fileSize="100 MB"
             color="grey lighten-4"
             flat
@@ -49,7 +49,7 @@
         <v-col>
           <card-box
             title="Ward"
-            fileCount="13 fies"
+            fileCount="1450 directories"
             fileSize="100 MB"
             color="grey lighten-4"
             flat
@@ -92,7 +92,40 @@
             </template>
           </v-list>
         </v-col>
-        <v-col> </v-col>
+        <v-col>
+        <template>
+          <div>
+            <v-progress-linear
+              color="light-blue"
+              height="10"
+              value="10"
+              striped
+            ></v-progress-linear>
+            <br>
+            <v-progress-linear
+              color="light-green darken-4"
+              height="10"
+              value="20"
+              striped
+            ></v-progress-linear>
+            <br>
+            <v-progress-linear
+              height="10"
+              value="45"
+              striped
+              color="lime"
+            ></v-progress-linear>
+            <br>
+            <v-progress-linear
+              value="60"
+              height="10"
+              striped
+              color="deep-orange"
+            ></v-progress-linear>
+          </div>
+        </template>
+        
+        </v-col>
       </v-row>
     </v-container>
   </div>

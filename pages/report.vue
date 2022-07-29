@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <h2>Report</h2>
+    <h3 class="title grey--text pa-6">Constituency</h3>
   </div>
 </template>
 
