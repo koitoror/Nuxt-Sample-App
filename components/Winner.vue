@@ -6,34 +6,37 @@
     <v-list-item two-line>
       <v-list-item-content>
         <v-list-item-title class="text-h5">
-          San Francisco
+          Candidate 1
         </v-list-item-title>
-        <v-list-item-subtitle>Mon, 12:30 PM, Mostly sunny</v-list-item-subtitle>
+        <v-list-item-subtitle>[ Projected Winner ]</v-list-item-subtitle>
+        <br>
       </v-list-item-content>
     </v-list-item>
-
+        <br>
     <v-card-text>
       <v-row align="center">
         <v-col
-          class="text-h2"
+          class="text-h3"
           cols="6"
+          pa="4"
         >
-          23&deg;C
+          53&#37;
         </v-col>
         <v-col cols="6">
             <v-btn icon>
-                <v-icon size="92">mdi-account-check-outline</v-icon>
+                <v-icon size="150" color="deep-orange" pa="6">mdi-account-check-outline</v-icon>
             </v-btn>        
 
         </v-col>
       </v-row>
     </v-card-text>
 
+      <br>
     <v-list-item>
       <v-list-item-icon>
         <v-icon>mdi-send</v-icon>
       </v-list-item-icon>
-      <v-list-item-subtitle>23 km/h</v-list-item-subtitle>
+      <v-list-item-title>PRESIDENT  ELECT</v-list-item-title>
     </v-list-item>
 
 
