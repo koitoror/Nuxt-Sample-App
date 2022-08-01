@@ -48,6 +48,10 @@
     <v-app-bar flat app fixed color="#1e1e1e">
       <v-toolbar-title v-text="'Dashboard'"></v-toolbar-title>
       <v-spacer>
+        <v-col>
+        </v-col>
+        <v-col>
+        </v-col>
         <v-col class="text-center d-flex align-center justify-space-around">
           <H2> Elections Countdown</H2>
         </v-col>
