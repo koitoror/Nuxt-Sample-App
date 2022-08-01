@@ -82,7 +82,7 @@ export default {
   justify-content: center;
   &__block {
     text-align: center;
-    padding: 0px 15px;
+    padding: 0px 10px;
     position: relative;
     &:first-child{
       padding-left: 0;
@@ -99,9 +99,11 @@ export default {
   &__text {
     text-transform: uppercase;
     margin-bottom: 5px;
+    font-size: 70%;
+
   }
   &__digit {
-    font-size: 300%;
+    font-size: 150%;
     font-weight: bold;
     line-height: 1;
     margin-bottom: 5px;

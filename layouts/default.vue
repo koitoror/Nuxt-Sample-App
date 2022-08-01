@@ -5,7 +5,7 @@
         <div>
           <v-list-item>
             <v-list-item-title class="text-center">
-              Mr. <span class="grey--text">Elector</span>
+              ML. <span class="grey--text font-weight-bold labelClass">ELECTOR</span>
             </v-list-item-title>
           </v-list-item>
         </div>
@@ -47,13 +47,10 @@
 
     <v-app-bar flat app fixed color="#1e1e1e">
       <v-toolbar-title v-text="'Dashboard'"></v-toolbar-title>
-      <v-spacer>
-        <v-col>
-        </v-col>
-        <v-col>
-        </v-col>
-        <v-col class="text-center d-flex align-center justify-space-around">
-          <H2> Elections Countdown</H2>
+      <v-spacer class="pa-0 mt-6">
+
+        <v-col class="text-center d-flex align-center justify-space-around pa-1">
+          <h4> Elections Countdown</h4>
         </v-col>
 
         <Countdown :date="end" @onFinish="finish()"></Countdown>
@@ -114,4 +111,8 @@
   };
 </script>
 
-<style></style>
+<style>
+  .labelClass {
+    font-size: 0.8rem;
+  }
+</style>
