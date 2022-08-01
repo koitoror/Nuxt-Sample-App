@@ -47,7 +47,11 @@
 
     <v-app-bar flat app fixed color="#1e1e1e">
       <v-toolbar-title v-text="'Dashboard'"></v-toolbar-title>
-      <v-spacer></v-spacer>
+      <v-spacer>
+
+        <Countdown :date="end" @onFinish="finish()"></Countdown>
+
+      </v-spacer>
       <div>
         <v-text-field
           placeholder="Search"
@@ -70,28 +74,37 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      items: [
-        { link: "", icon: "mdi-apps", title: "Dasboard" },
-        {
-          link: "county",
-          icon: "mdi-bag-personal-outline",
-          title: "County"
-        },
-        { link: "constituency",
-        icon: "mdi-equalizer-outline",
-        title: "Constituency"
-        },
-        { link: "ward",
-        icon: "mdi-cog-outline",
-        title: "Ward"
-        }
-      ]
-    };
-  }
-};
+  import Countdown from "~/components/Countdown";
+  export default {
+    components: {
+      Countdown
+    },
+    data() {
+      return {
+        end: new Date("2022-08-09T05:30:00"),
+
+        items: [
+          { link: "",
+          icon: "mdi-apps",
+          title: "Dasboard" 
+          },
+          {
+            link: "county",
+            icon: "mdi-bag-personal-outline",
+            title: "County"
+          },
+          { link: "constituency",
+          icon: "mdi-equalizer-outline",
+          title: "Constituency"
+          },
+          { link: "ward",
+          icon: "mdi-cog-outline",
+          title: "Ward"
+          }
+        ]
+      };
+    }
+  };
 </script>
 
 <style></style>

@@ -196,15 +196,15 @@
 </template>
 
 <script>
-import CardBox from "~/components/CardBox";
-import Countdown from "~/components/Countdown";
-import Winner from "~/components/Winner";
-export default {
-  components: {
-    CardBox,
-    Countdown
+  import CardBox from "~/components/CardBox";
+  import Countdown from "~/components/Countdown";
+  import Winner from "~/components/Winner";
+  export default {
+    components: {
+      CardBox,
+      Countdown
 
-  },
+    },
   data() {
     return {
       end: new Date("2022-08-09T05:30:00"),

@@ -5,7 +5,7 @@
         <div class="text-center mb-6">
           <img
             width="120"
-            src="https://ai.devoteam.com/wp-content/uploads/sites/91/2018/05/google-logo-icon-png-transparent-background.png"
+            src="https://cdn.pixabay.com/photo/2015/12/11/11/43/google-1088004__340.png"
           />
           <h2 class="display-1">Sign In</h2>
         </div>
