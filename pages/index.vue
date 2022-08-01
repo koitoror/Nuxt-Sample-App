@@ -252,4 +252,17 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+
+.theme--dark.v-sheet {
+  background-color: #1e1e1e;
+  border-color: #1e1e1e;
+  color: #fff;
+}
+
+.theme--dark.v-card {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+</style>
