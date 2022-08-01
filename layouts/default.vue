@@ -45,7 +45,7 @@
       </v-layout>
     </v-navigation-drawer>
 
-    <v-app-bar flat app fixed color="white">
+    <v-app-bar flat app fixed color="#1e1e1e">
       <v-toolbar-title v-text="'Dashboard'"></v-toolbar-title>
       <v-spacer></v-spacer>
       <div>
