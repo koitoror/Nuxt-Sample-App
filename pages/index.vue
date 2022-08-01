@@ -75,9 +75,7 @@
 
       <v-col>
 
-        <v-col class="text-center d-flex align-center justify-space-around">
-          <H2> Elections Countdown</H2>
-        </v-col>
+
         
       
       </v-col>
