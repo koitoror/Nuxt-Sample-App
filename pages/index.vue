@@ -20,7 +20,7 @@
             title="Total Registered Voters"
             fileCount="22,152,144"
             fileSize="100 MB"
-            color="grey lighten-4"
+            color="grey darken-4"
             flat
           ></card-box>
         </v-col>
@@ -29,7 +29,7 @@
             title="Total Votes Cast"
             fileCount="0"
             fileSize="100 MB"
-            color="grey lighten-4"
+            color="grey darken-4"
             flat
             iconColor="amber"
             titleClass="amber--text"
@@ -41,7 +41,7 @@
             title="Leading Candidate"
             fileCount="Candidate 1"
             fileSize="100 MB"
-            color="grey lighten-4"
+            color="grey darken-4"
             flat
             iconColor="pink"
             titleClass="pink--text"
@@ -60,7 +60,7 @@
                 title="Projected Winner"
                 fileCount="Candidate 1"
                 fileSize="100 MB"
-                color="grey lighten-4"
+                color="grey darken-4"
                 flat
                 iconColor="indigo"
                 titleClass="indigo--text"
@@ -90,7 +90,7 @@
             title="Presidential"
             fileCount="1 directory"
             fileSize="100 MB"
-            color="grey lighten-4"
+            color="grey darken-4"
             flat
           ></card-box>
         </v-col>
@@ -99,7 +99,7 @@
             title="County"
             fileCount="47 directories"
             fileSize="100 MB"
-            color="grey lighten-4"
+            color="grey darken-4"
             flat
             iconColor="amber"
             titleClass="amber--text"
@@ -111,7 +111,7 @@
             title="Constituency"
             fileCount="290 directories"
             fileSize="100 MB"
-            color="grey lighten-4"
+            color="grey darken-4"
             flat
             iconColor="pink"
             titleClass="pink--text"
@@ -123,7 +123,7 @@
             title="Ward"
             fileCount="1450 directories"
             fileSize="100 MB"
-            color="grey lighten-4"
+            color="grey darken-4"
             flat
             iconColor="indigo"
             titleClass="indigo--text"
@@ -144,7 +144,7 @@
           <v-list class="pa-0">
             <template v-for="(item, index) in itemsRecents">
               <v-list-item :key="index" class="px-0">
-                <v-list-item-avatar size="48" color="grey lighten-3">
+                <v-list-item-avatar size="48" color="grey darken-3">
                   <v-icon :color="item.iconColor">{{ item.icon }}</v-icon>
                 </v-list-item-avatar>
                 

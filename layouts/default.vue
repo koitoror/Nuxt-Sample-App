@@ -32,7 +32,7 @@
           <v-list-item>
             <v-list-item-content class="text-center">
               <div>
-                <v-avatar size="48" color="grey lighten-4">
+                <v-avatar size="48" color="grey darken-1">
                   <img src="@/static/icon.png" alt="alt" />
                 </v-avatar>
                 <p class="pa-2">
