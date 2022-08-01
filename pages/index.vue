@@ -78,9 +78,7 @@
         <v-col class="text-center d-flex align-center justify-space-around">
           <H2> Elections Countdown</H2>
         </v-col>
-        <v-col>
-          <Countdown :date="end" @onFinish="finish()"></Countdown>
-        </v-col>
+        
       
       </v-col>
 
@@ -197,17 +195,14 @@
 
 <script>
   import CardBox from "~/components/CardBox";
-  import Countdown from "~/components/Countdown";
   import Winner from "~/components/Winner";
   export default {
     components: {
-      CardBox,
-      Countdown
+      CardBox
 
     },
   data() {
     return {
-      end: new Date("2022-08-09T05:30:00"),
       itemsRecents: [
         {
           icon: "mdi-account-check-outline",
@@ -243,12 +238,8 @@
         }
       ]
     };
-  },
-  methods: {
-    finish() {
-      console.log("finish");
-    },
   }
+
 };
 </script>
 
