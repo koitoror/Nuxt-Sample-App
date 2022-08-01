@@ -76,12 +76,18 @@ export default {
       items: [
         { link: "", icon: "mdi-apps", title: "Dasboard" },
         {
-          link: "workspace",
+          link: "county",
           icon: "mdi-bag-personal-outline",
-          title: "Workspace"
+          title: "County"
         },
-        { link: "report", icon: "mdi-equalizer-outline", title: "Report" },
-        { link: "setting", icon: "mdi-cog-outline", title: "Setting" }
+        { link: "constituency",
+        icon: "mdi-equalizer-outline",
+        title: "Constituency"
+        },
+        { link: "ward",
+        icon: "mdi-cog-outline",
+        title: "Ward"
+        }
       ]
     };
   }
