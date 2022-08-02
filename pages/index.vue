@@ -73,13 +73,6 @@
         </v-col>
       </v-row>
 
-      <v-col>
-
-
-        
-      
-      </v-col>
-
       <v-row>
         <v-col>
           <card-box
@@ -188,6 +181,7 @@
       </v-row>
 
     </v-container>
+
   </div>
 </template>
 
@@ -196,7 +190,8 @@
   import Winner from "~/components/Winner";
   export default {
     components: {
-      CardBox
+      CardBox,
+      Winner
 
     },
   data() {
