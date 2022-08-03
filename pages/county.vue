@@ -64,10 +64,7 @@ export default {
         .from('county')
         .select()
       this.data = data  
-      console.log(data[0])
-      console.log(data[0][' County Name '])
-      // console.log(data[0]["Registered Voters"])
-      console.log(data[0][" Registered Voters "])
+      console.log(data)
     },
   },
 };
