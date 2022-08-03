@@ -53,7 +53,7 @@ export default {
       data: null,
     };
   },
-  mounted() {
+  created() {
 
     this.getEvents();
 
