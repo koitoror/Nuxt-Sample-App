@@ -27,11 +27,11 @@
                   v-on="on"
                   :title="item[' County Name ']"
                   :fileCount="item[' Registered Voters '].toString()"
-                  fileSize="100 MB"
+                  fileSize="Constituencies"
                   color="grey darken-4"
                   flat
-                  iconColor="indigo"
-                  titleClass="indigo--text"
+                  iconColor="amber"
+                  titleClass="amber--text"
                 ></card-box>
 
               </template>
@@ -55,11 +55,11 @@ export default {
   },
   created() {
 
-    this.getEvents();
+    this.getCounties();
 
   },
   methods: {
-    async getEvents() {
+    async getCounties() {
       const { data, error } = await this.$supabase
         .from('county')
         .select()
