@@ -25,8 +25,8 @@
                   dark
                   v-bind="attrs"
                   v-on="on"
-                  :title="item[' County Name ']"
-                  :fileCount="item[' Registered Voters '].toString()"
+                  :title="item[' CountyName '].trim()"
+                  :fileCount="item[' RegisteredVoters '].toString()"
                   fileSize="Constituencies"
                   color="grey darken-4"
                   flat
@@ -64,7 +64,7 @@ export default {
         .from('county')
         .select()
       this.data = data  
-      // console.log(data)
+      // console.log(data);
     },
   },
 };
