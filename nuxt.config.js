@@ -46,11 +46,6 @@ export default {
     }]
   ],
 
-  
-  serverMiddleware: [
-    { path: '/api', handler: '~/api/api.js' },
-  ],
-
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: '/api',

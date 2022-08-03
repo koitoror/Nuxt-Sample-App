@@ -26,7 +26,7 @@
                   v-bind="attrs"
                   v-on="on"
                   :title="item[' County Name ']"
-                  :fileCount="item[' Registered Voters ']"
+                  :fileCount="item[' Registered Voters '].toString()"
                   fileSize="100 MB"
                   color="grey darken-4"
                   flat
@@ -64,7 +64,7 @@ export default {
         .from('county')
         .select()
       this.data = data  
-      console.log(data)
+      // console.log(data)
     },
   },
 };
@@ -72,7 +72,9 @@ export default {
 
 <style scoped>
 .v-card {
-  min-width: 68px;
+  /* min-width: 48px;
+  max-width: 168px; */
+  width: 200px;
 }
 
 </style>
