@@ -5,7 +5,7 @@
       <v-row>
         <v-col>
           <v-layout wrap>
-            <h3 class="title grey--text">Ward</h3>
+            <h3 class="title grey--text">Wards in {{ ConstituencyName }} Constituency </h3>
             <v-spacer></v-spacer>
             <v-btn icon>
               <v-icon>mdi-arrow-right</v-icon>
@@ -69,11 +69,12 @@
                   v-on="on"
                   :title="item['CA-WardName']"
                   :fileCount="item['ConstituencyCode'].toString()"
-                  fileSize="Wards"
+                  fileSize="Polling Centre "
                   color="grey darken-4"
                   flat
                   iconColor="indigo"
                   titleClass="indigo--text"
+                  :to="'/polling_station/' + item['CA-WardCode']" exact tile
                 ></card-box>
 
               </template>
@@ -105,6 +106,7 @@
         value: 0,
         data: null,
         ConstituencyCode: this.$route.params.slug,
+        ConstituencyName: null,
       }
     },
     created() {
@@ -129,13 +131,16 @@
           .from('ward')
           // .select()
           .select(`
+            CA-WardCode,
             CA-WardName,
             ConstituencyCode,
             ConstituencyName
           `)
           .eq('ConstituencyCode', this.ConstituencyCode)
 
-        this.data = data  
+        this.data = data
+        this.ConstituencyName = data[0]['ConstituencyName']  
+
         // console.log(data)
       },
     },

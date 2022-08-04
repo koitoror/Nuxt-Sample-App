@@ -5,7 +5,7 @@
       <v-layout wrap>
         <v-icon size="48" :color="iconColor">{{icon}}</v-icon>
         <v-spacer></v-spacer>
-        <v-btn icon>
+        <v-btn icon v-on:click.prevent>
           <v-icon>mdi-dots-vertical</v-icon>
         </v-btn>
       </v-layout>

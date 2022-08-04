@@ -32,6 +32,7 @@
                   flat
                   iconColor="pink"
                   titleClass="pink--text"
+                  :to="'/ward/' + item['ConstituencyCode']" exact tile
                 ></card-box>
 
               </template>

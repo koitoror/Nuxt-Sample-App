@@ -6,7 +6,7 @@
       <v-row>
         <v-col>
           <v-layout wrap>
-            <h3 class="title grey--text">Constituency</h3>
+            <h3 class="title grey--text">Constituencies in {{ CountyName }} County</h3>
             <v-spacer></v-spacer>
             <v-btn icon>
               <v-icon>mdi-arrow-right</v-icon>
@@ -32,6 +32,7 @@
                   flat
                   iconColor="pink"
                   titleClass="pink--text"
+                  :to="'/ward/' + item['ConstituencyCode']" exact tile
                 ></card-box>
 
               </template>
@@ -52,6 +53,7 @@ export default {
     return {
       data: null,
       CountyCode: this.$route.params.slug,
+      CountyName: null
 
     };
   },
@@ -67,12 +69,14 @@ export default {
         // .select()
         .select(`
             CountyCode,
+            CountyName,
             ConstituencyCode,
             ConstituencyName
         `)
         .eq('CountyCode', this.CountyCode)
 
       this.data = data  
+      this.CountyName = data[0]['CountyName']  
       // console.log(data)
     },
   },

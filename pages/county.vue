@@ -6,9 +6,9 @@
       <v-row>
         <v-col>
           <v-layout wrap>
-            <h3 class="title grey--text">County</h3>
+            <h3 class="title grey--text">Counties in Kenya</h3>
             <v-spacer></v-spacer>
-            <v-btn icon>
+            <v-btn icon v-on:click.prevent>
               <v-icon>mdi-arrow-right</v-icon>
             </v-btn>
           </v-layout>
@@ -32,6 +32,7 @@
                   flat
                   iconColor="amber"
                   titleClass="amber--text"
+                  :to="'/constituency/' + item['CountyCode']" exact tile
                 ></card-box>
 
               </template>

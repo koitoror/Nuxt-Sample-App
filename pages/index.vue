@@ -67,7 +67,7 @@
               ></card-box>
 
             </template>
-            <span>After 50% of Registered Votes have been cast</span>
+            <span>Leading Candidate <br>After 50% of Registered Votes have been cast</span>
           </v-tooltip>
 
         </v-col>
@@ -76,8 +76,8 @@
       <v-row>
         <v-col>
           <card-box
-            title="Presidential"
-            fileCount="1 directory"
+            title="National"
+            fileCount="1 elective office"
             fileSize="100 MB"
             color="grey darken-4"
             flat
@@ -86,7 +86,7 @@
         <v-col>
           <card-box
             title="County"
-            fileCount="47 directories"
+            fileCount="47 elective offices"
             fileSize="100 MB"
             color="grey darken-4"
             flat
@@ -98,7 +98,7 @@
         <v-col>
           <card-box
             title="Constituency"
-            fileCount="290 directories"
+            fileCount="290 elective offices"
             fileSize="100 MB"
             color="grey darken-4"
             flat
@@ -110,7 +110,7 @@
         <v-col>
           <card-box
             title="Ward"
-            fileCount="1450 directories"
+            fileCount="1450 elective offices"
             fileSize="100 MB"
             color="grey darken-4"
             flat
@@ -132,32 +132,34 @@
 
           <v-list class="pa-0">
             <template v-for="(item, index) in itemsRecents">
-              <v-list-item :key="index" class="px-0">
-                <v-list-item-avatar size="48" color="grey darken-3">
-                  <v-icon :color="item.iconColor">{{ item.icon }}</v-icon>
-                </v-list-item-avatar>
-                
-                <v-list-item-content>
-                  <v-list-item-title>
-                    {{ item.title }}
-                  </v-list-item-title>
-                  <v-list-item-subtitle>
-                    {{ item.subtitle }}
-                  </v-list-item-subtitle>
-                </v-list-item-content>
-                <v-progress-linear
-                  :value="item.value"
-                  height="10"
-                  striped
-                  :color="item.iconColor"
-                ></v-progress-linear>
-                <v-list-item-action>
-                  <small class="grey--text">
-                    {{item.size}}
-                  </small>
-                </v-list-item-action>
-                
-              </v-list-item>
+              <template>
+                <v-list-item class="px-0" :key="index">
+                  <v-list-item-avatar size="48" color="grey darken-3">
+                    <v-icon :color="item.iconColor">{{ item.icon }}</v-icon>
+                  </v-list-item-avatar>
+                  
+                  <v-list-item-content>
+                    <v-list-item-title>
+                      {{ item.title }}
+                    </v-list-item-title>
+                    <v-list-item-subtitle>
+                      {{ item.subtitle }}
+                    </v-list-item-subtitle>
+                  </v-list-item-content>
+                  <v-progress-linear
+                    :value="item.value"
+                    height="10"
+                    striped
+                    :color="item.iconColor"
+                  ></v-progress-linear>
+                  <v-list-item-action>
+                    <small class="grey--text">
+                      {{item.size}}
+                    </small>
+                  </v-list-item-action>
+                  
+                </v-list-item>
+              </template>
             </template>
           </v-list>
         </v-col>

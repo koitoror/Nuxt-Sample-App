@@ -5,7 +5,7 @@
       <v-row>
         <v-col>
           <v-layout wrap>
-            <h3 class="title grey--text">Polling Station</h3>
+            <h3 class="title grey--text">Polling Centres in {{ CA_WardName }} Ward</h3>
             <v-spacer></v-spacer>
             <v-btn icon>
               <v-icon>mdi-arrow-right</v-icon>
@@ -28,11 +28,12 @@
                   :loading="loading"
                   :title="item['PollingStationName']"
                   :fileCount="item['ConstituencyCode'].toString()"
-                  fileSize="Wards"
+                  fileSize="Go To Form"
                   color="grey darken-4"
                   flat
                   iconColor="indigo"
                   titleClass="indigo--text"
+                  :to="'/ward/' + item['ConstituencyCode']" exact tile
                 ></card-box>
 
               </template>
@@ -51,9 +52,10 @@
   export default {
     data () {
       return {
-        // loading: false,
+        loading: false,
         data: null,
         CA_WardCode: this.$route.params.slug,
+        CA_WardName: null,
       }
     },
     created() {
@@ -64,14 +66,15 @@
 
     methods: {
       async getPollingStation() {
-        // this.loading = true;
+        this.loading = true;
         const { data, error } = await this.$supabase
           .from('polling_station_unique')
           .select()
           .eq('CA-WardCode', this.CA_WardCode)
 
-        // this.loading = false;
+        this.loading = false;
         this.data = data;
+        this.CA_WardName = data[0]['CA-WardName']
         // console.log(data)
       },
     },
@@ -82,6 +85,7 @@
   .v-progress-circular {
     margin: 1rem;
   }
+
   /* .v-card {
     width: 400px;
   } */

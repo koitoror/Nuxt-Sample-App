@@ -69,7 +69,7 @@
                   v-on="on"
                   :title="item['CA-WardName']"
                   :fileCount="item['ConstituencyCode'].toString()"
-                  fileSize="Wards"
+                  fileSize="Polling Centres"
                   color="grey darken-4"
                   flat
                   iconColor="indigo"
