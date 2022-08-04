@@ -63,17 +63,6 @@ export default {
       const { data, error } = await this.$supabase
         .from('constituency')
         .select()
-        // .select(`
-        //   County Code
-        // `)
-        // .select(`
-        //   County Name,
-        //   Constituency Name,
-        //   Constituency Code,
-        //   Constituency Code (
-        //     CA-Ward Name
-        //   )
-        // `)
       this.data = data  
       // console.log(data)
     },
