@@ -86,8 +86,9 @@
     margin: 1rem;
   }
 
-  /* .v-card {
-    width: 400px;
-  } */
+  .v-card {
+    /* min-width: 270px; */
+    width: 280px;
+  }
 
 </style>

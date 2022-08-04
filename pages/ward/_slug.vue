@@ -68,7 +68,7 @@
                   v-bind="attrs"
                   v-on="on"
                   :title="item['CA-WardName']"
-                  :fileCount="item['ConstituencyCode'].toString()"
+                  :fileCount="numberWithCommas(item['RegisteredVoters'])"
                   fileSize="Polling Centre "
                   color="grey darken-4"
                   flat
@@ -134,7 +134,8 @@
             CA-WardCode,
             CA-WardName,
             ConstituencyCode,
-            ConstituencyName
+            ConstituencyName,
+            RegisteredVoters
           `)
           .eq('ConstituencyCode', this.ConstituencyCode)
 
@@ -142,6 +143,9 @@
         this.ConstituencyName = data[0]['ConstituencyName']  
 
         // console.log(data)
+      },
+      numberWithCommas(x) {
+          return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       },
     },
   };
