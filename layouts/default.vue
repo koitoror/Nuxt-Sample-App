@@ -104,6 +104,10 @@
           { link: "ward",
           icon: "mdi-cog-outline",
           title: "Ward"
+          },
+          { link: "polling_station",
+          icon: "mdi-account-check-outline",
+          title: "Polling Station"
           }
         ]
       };

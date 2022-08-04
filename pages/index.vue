@@ -115,7 +115,7 @@
             color="grey darken-4"
             flat
             iconColor="indigo"
-            titleClass="indigo--text"
+            titleClass="ndigo--texti"
           ></card-box>
         </v-col>
       </v-row>

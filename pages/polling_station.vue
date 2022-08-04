@@ -67,8 +67,8 @@
                   dark
                   v-bind="attrs"
                   v-on="on"
-                  :title="item['CA-WardName']"
-                  :fileCount="item['ConstituencyCode'].toString()"
+                  :title="item['PollingStationName']"
+                  :fileCount="item['RegisteredVoters'].toString()"
                   fileSize="Wards"
                   color="grey darken-4"
                   flat
@@ -96,7 +96,7 @@
         interval: {},
         value: 0,
         data: null,
-        ConstituencyCode: 143,
+        ConstituencyCode: 718,
       }
     },
     created() {
@@ -118,17 +118,19 @@
     methods: {
       async getWards() {
         const { data, error } = await this.$supabase
-          .from('ward')
-          // .select()
-          .select(`
-            CA-WardName,
-            ConstituencyCode,
-            ConstituencyName
-          `)
-          .eq('ConstituencyCode', this.ConstituencyCode)
+          .from('polling_station')
+          .select()
+          // .select(`
+          //   CA-WardName,
+          //   CA-WardCode,
+          //   ConstituencyCode,
+          //   ConstituencyName
+          // `)
+          // .eq('ConstituencyCode', this.ConstituencyCode)
+          .eq('CA-WardCode', this.ConstituencyCode)
 
         this.data = data  
-        // console.log(data)
+        console.log(data)
       },
     },
   };
