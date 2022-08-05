@@ -75,6 +75,7 @@
                   iconColor="indigo"
                   titleClass="indigo--text"
                   :to="'/polling_centre/' + item['CA-WardCode']" exact tile
+
                 ></card-box>
 
               </template>
@@ -105,7 +106,7 @@
         interval: {},
         value: 0,
         data: null,
-        ConstituencyCode: this.$route.params.slug,
+        ConstituencyCode: 143,
         ConstituencyName: null,
       }
     },

@@ -14,7 +14,6 @@
         </v-col>
       </v-row>
 
-
       <v-row>
         <template v-for="(item, index) in data">
 
@@ -32,6 +31,8 @@
                   flat
                   iconColor="indigo"
                   titleClass="indigo--text"
+                  :to="'/polling_station/' + item['CA-WardCode'] + '/\?psname=' + item['PollingStationName']" exact tile
+
                 ></card-box>
 
               </template>

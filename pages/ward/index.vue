@@ -68,12 +68,14 @@
                   v-bind="attrs"
                   v-on="on"
                   :title="item['CA-WardName']"
-                  :fileCount="item['ConstituencyCode'].toString()"
+                  :fileCount="item['RegisteredVoters'].toLocaleString()"
                   fileSize="Polling Centres"
                   color="grey darken-4"
                   flat
                   iconColor="indigo"
                   titleClass="indigo--text"
+                  :to="'/polling_centre/' + item['CA-WardCode']" exact tile
+
                 ></card-box>
 
               </template>
@@ -120,9 +122,12 @@
           .from('ward')
           // .select()
           .select(`
+            CA-WardCode,
             CA-WardName,
             ConstituencyCode,
-            ConstituencyName
+            ConstituencyName,
+            RegisteredVoters
+
           `)
           .eq('ConstituencyCode', this.ConstituencyCode)
 
