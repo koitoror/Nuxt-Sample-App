@@ -106,7 +106,7 @@
         interval: {},
         value: 0,
         data: null,
-        ConstituencyCode: 143,
+        ConstituencyCode: this.$route.params.slug,
         ConstituencyName: null,
       }
     },
