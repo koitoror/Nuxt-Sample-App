@@ -5,7 +5,7 @@
       <v-row>
         <v-col>
           <v-layout wrap>
-            <h3 class="title grey--text">Polling Station</h3>
+            <h3 class="title grey--text">Polling Centres in {{ CA_WardName }} Ward</h3>
             <v-spacer></v-spacer>
             <v-btn icon>
               <v-icon>mdi-arrow-right</v-icon>
@@ -25,13 +25,16 @@
                   dark
                   v-bind="attrs"
                   v-on="on"
+                  :loading="loading"
                   :title="item['PollingStationName']"
                   :fileCount="item['ConstituencyCode'].toString()"
-                  fileSize="Wards"
+                  fileSize="Polling Station"
                   color="grey darken-4"
                   flat
                   iconColor="indigo"
                   titleClass="indigo--text"
+                  :to="'/polling_station/' + item['CA-WardCode'] + '/\?psname=' + item['PollingStationName']" exact tile
+
                 ></card-box>
 
               </template>
@@ -50,24 +53,29 @@
   export default {
     data () {
       return {
+        loading: false,
         data: null,
-        CA_WardCode: 718,
+        CA_WardCode: this.$route.params.slug,
+        CA_WardName: null,
       }
     },
     created() {
 
-      this.getWards();
+      this.getPollingStation();
 
     },
 
     methods: {
-      async getWards() {
+      async getPollingStation() {
+        this.loading = true;
         const { data, error } = await this.$supabase
-          .from('polling_station')
+          .from('polling_centre')
           .select()
           .eq('CA-WardCode', this.CA_WardCode)
 
-        this.data = data  
+        this.loading = false;
+        this.data = data;
+        this.CA_WardName = data[0]['CA-WardName']
         // console.log(data)
       },
     },
@@ -78,8 +86,10 @@
   .v-progress-circular {
     margin: 1rem;
   }
-  /* .v-card {
-    width: 400px;
-  } */
+
+  .v-card {
+    /* min-width: 270px; */
+    width: 280px;
+  }
 
 </style>

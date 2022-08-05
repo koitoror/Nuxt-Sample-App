@@ -26,7 +26,7 @@
                   v-bind="attrs"
                   v-on="on"
                   :title="item[' CountyName '].trim()"
-                  :fileCount="numberWithCommas(item[' RegisteredVoters '])"
+                  :fileCount="item[' RegisteredVoters '].toLocaleString()"
                   fileSize="Constituencies"
                   color="grey darken-4"
                   flat
@@ -67,9 +67,6 @@ export default {
       this.data = data  
       // console.log(data);
     },
-    numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
   },
 };
 </script>

@@ -63,7 +63,7 @@
     methods: {
       async getWards() {
         const { data, error } = await this.$supabase
-          .from('polling_station')
+          .from('polling_centre')
           .select()
           .eq('CA-WardCode', this.CA_WardCode)
 

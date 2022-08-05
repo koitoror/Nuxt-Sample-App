@@ -68,13 +68,13 @@
                   v-bind="attrs"
                   v-on="on"
                   :title="item['CA-WardName']"
-                  :fileCount="numberWithCommas(item['RegisteredVoters'])"
+                  :fileCount="item['RegisteredVoters'].toLocaleString()"
                   fileSize="Polling Centre "
                   color="grey darken-4"
                   flat
                   iconColor="indigo"
                   titleClass="indigo--text"
-                  :to="'/polling_station/' + item['CA-WardCode']" exact tile
+                  :to="'/polling_centre/' + item['CA-WardCode']" exact tile
                 ></card-box>
 
               </template>
@@ -143,9 +143,6 @@
         this.ConstituencyName = data[0]['ConstituencyName']  
 
         // console.log(data)
-      },
-      numberWithCommas(x) {
-          return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       },
     },
   };

@@ -5,7 +5,7 @@
       <v-row>
         <v-col>
           <v-layout wrap>
-            <h3 class="title grey--text">Polling Centres in {{ CA_WardName }} Ward</h3>
+            <h3 class="title grey--text">Polling Stations in {{ Polling_CentreName }} Polling Centre</h3>
             <v-spacer></v-spacer>
             <v-btn icon>
               <v-icon>mdi-arrow-right</v-icon>
@@ -27,7 +27,7 @@
                   v-on="on"
                   :loading="loading"
                   :title="item['PollingStationName']"
-                  :fileCount="item['ConstituencyCode'].toString()"
+                  :fileCount="item['RegisteredVoters'].toString()"
                   fileSize="Go To Form"
                   color="grey darken-4"
                   flat
@@ -54,8 +54,10 @@
       return {
         loading: false,
         data: null,
+        CA_WardCode: 718,
         CA_WardCode: this.$route.params.slug,
-        CA_WardName: null,
+        Polling_CentreName: this.$route.query.psname,
+        // Polling_StationName: this.$route.params.query,
       }
     },
     created() {
@@ -66,16 +68,20 @@
 
     methods: {
       async getPollingStation() {
+        // console.log(this.$route)
+
         this.loading = true;
         const { data, error } = await this.$supabase
-          .from('polling_station_unique')
+          .from('polling_station')
           .select()
           .eq('CA-WardCode', this.CA_WardCode)
+          .eq('PollingStationName', this.Polling_CentreName)
 
         this.loading = false;
         this.data = data;
         this.CA_WardName = data[0]['CA-WardName']
         // console.log(data)
+        // console.log(this.$route)
       },
     },
   };
