@@ -62,6 +62,7 @@
     },
     created() {
       this.getPollingStation();
+      // this.runAsyncFetchPS();
 
     },
 
@@ -73,16 +74,12 @@
           .rpc('total_reg_voters_per_p_station', {
             wardno,
             psname
-
             // wardno: wardno,
             // psname: psname
-            // wardno: this.wardno,
-            // psname: this.psname
           })
 
         // if (error) console.error(error)
-        // // else console.log('data',data, this.psname, this.wardno)
-        // else console.log('data', data, psname, wardno)
+        // else console.log('data', data)
         return data
 
       },
@@ -100,42 +97,21 @@
         this.CA_WardName = data[0]['CA-WardName']
         // console.log('this.data0', this.data)
 
+        // // after the data is populated
+        this.runAsyncFetchPS();
+
+        console.log(this.data)
+
+      },
+
+      runAsyncFetchPS() {
         // after the data is populated
         this.data.map(async item => {
           let res = await this.getPollingCentreTotalRegVoters(item['CA-WardCode'], item['PollingStationName'])
           item.regVoters = res.toLocaleString()
-
+  
         })
-        // console.log('this.data1',this.data1)
-        console.log(this.data)
-
       },
-    },
-    computed: {
-      // async getPollingCentreTotalRegVoters(wardno, psname) {
-        
-      //   // let psname = 'CENTRAL PRIMARY SCHOOL'
-      //   // let wardno = 718
-      //   let { data, error } = await this.$supabase
-      //     // .rpc('hello_world')
-      //     // .rpc('total_registered_voters_national')
-      //     // .rpc('total_reg_voters_per_p_station8')
-      //     // .rpc('total_amount_completed_orders')
-      //     .rpc('total_reg_voters_per_p_station', {
-      //       // wardno,
-      //       // psname
-
-      //       wardno: wardno,
-      //       psname: psname
-      //       // wardno: this.wardno,
-      //       // psname: this.psname
-      //     })
-
-      //   if (error) console.error(error)
-      //   // else console.log('data',data, this.psname, this.wardno)
-      //   else console.log('data', data, psname, wardno)
-      //   return data
-      // },
     },
 
   };
