@@ -27,8 +27,8 @@
                   v-on="on"
                   :loading="loading"
                   :title="item['PollingStationName']"
-                  :fileCount="item.regVoters"
-                  fileSize="Polling Station"
+                  :fileCount="item.totalregvoters.toLocaleString()"
+                  :fileSize="item.count_ + '  Polling Stations'"
                   color="grey darken-4"
                   flat
                   iconColor="indigo"
@@ -67,28 +67,12 @@
     },
 
     methods: {
-      async getPollingCentreTotalRegVoters(wardno, psname) {
-        
-        let { data, error } = await this.$supabase
-          // .rpc('total_registered_voters_national')
-          .rpc('total_reg_voters_per_p_station', {
-            wardno,
-            psname
-            // wardno: wardno,
-            // psname: psname
-          })
-
-        // if (error) console.error(error)
-        // else console.log('data', data)
-        return data
-
-      },
 
       async getPollingStation() {
         this.loading = true;
 
         const { data, error } = await this.$supabase
-          .from('polling_centre')
+          .from('pcentre')
           .select()
           .eq('CA-WardCode', this.CA_WardCode)
 
@@ -97,21 +81,11 @@
         this.CA_WardName = data[0]['CA-WardName']
         // console.log('this.data0', this.data)
 
-        // // after the data is populated
-        this.runAsyncFetchPS();
 
-        console.log(this.data)
+        // console.log(this.data)
 
       },
 
-      runAsyncFetchPS() {
-        // after the data is populated
-        this.data.map(async item => {
-          let res = await this.getPollingCentreTotalRegVoters(item['CA-WardCode'], item['PollingStationName'])
-          item.regVoters = res.toLocaleString()
-  
-        })
-      },
     },
 
   };
