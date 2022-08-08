@@ -103,19 +103,19 @@
             iconColor: "amber--text"
           },
           { 
-            link: "constituency",
+            link: "constituency/27",
             icon: "mdi-equalizer-outline",
             title: "Constituency",
             iconColor: "pink--text"
           },
           { 
-            link: "ward",
+            link: "ward/143",
             icon: "mdi-cog-outline",
             title: "Ward",
             iconColor: "indigo--text"
           },
           { 
-            link: "polling_centre",
+            link: "polling_centre/718",
             icon: "mdi-account-check-outline",
             title: "Polling Station",
             iconColor: "grey--text"
