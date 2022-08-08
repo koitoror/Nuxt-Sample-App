@@ -12,19 +12,21 @@
 
         <v-list nav>
           <template v-for="(item, index) in items">
-            <v-list-item
-              :to="`/${item.link}`"
-              nuxt
-              :key="index"
-              :title="item.title"
-              justify-center
-            >
-              <v-list-item-content>
-                <v-avatar size="36" width="64" class="text-center">
-                  <v-icon :class="item.iconColor">{{ item.icon }}</v-icon>
-                </v-avatar>
-              </v-list-item-content>
-            </v-list-item>
+            <template>
+              <v-list-item
+                :to="`/${item.link}`"
+                nuxt
+                :key="index"
+                :title="item.title"
+                justify-center
+              >
+                <v-list-item-content>
+                  <v-avatar size="36" width="64" class="text-center">
+                    <v-icon :class="item.iconColor">{{ item.icon }}</v-icon>
+                  </v-avatar>
+                </v-list-item-content>
+              </v-list-item>
+            </template>
           </template>
         </v-list>
 
