@@ -26,13 +26,16 @@
                   v-bind="attrs"
                   v-on="on"
                   :title="item['ConstituencyName']"
-                  :fileCount="item['CountyCode'].toString()"
-                  fileSize="Wards"
+                  :fileCount="item['RegisteredVoters'].toLocaleString()"
+                  :fileCount2="item['RegisteredVoters'].toLocaleString()"
+                  :fileSize="item.totalcount_w + '  Wards '"
+                  :fileSize1="item.totalcount_ps + '  Polling Stations '"
                   color="grey darken-4"
                   flat
                   iconColor="pink"
                   titleClass="pink--text"
                   :to="'/ward/' + item['ConstituencyCode']" exact tile
+                
                 ></card-box>
 
               </template>
@@ -65,14 +68,15 @@ export default {
   methods: {
     async getConstituencies() {
       const { data, error } = await this.$supabase
-        .from('constituency')
-        // .select()
-        .select(`
-            CountyCode,
-            CountyName,
-            ConstituencyCode,
-            ConstituencyName
-        `)
+        // .from('constituency')
+        .from('constituency_ward_count')
+        .select()
+        // .select(`
+        //     CountyCode,
+        //     CountyName,
+        //     ConstituencyCode,
+        //     ConstituencyName
+        // `)
         .eq('CountyCode', this.CountyCode)
 
       this.data = data  

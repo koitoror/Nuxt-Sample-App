@@ -10,13 +10,20 @@
         </v-btn>
       </v-layout>
 
-      </vla>
       <v-list-item-title class="my-2" :class="titleClass">{{title}}</v-list-item-title>
       <v-list-item-subtitle>
         <v-layout wrap>
           <span>{{fileCount}}</span>
           <v-spacer></v-spacer>
           <b>{{fileSize}}</b>
+          <!-- <small><b>{{fileSize}}</b></small> -->
+
+        </v-layout>
+        <v-layout wrap>
+          <span>{{fileCount1}}</span>
+          <span></span>
+          <v-spacer></v-spacer>
+          <small><b>{{fileSize1}}</b></small>
         </v-layout>
       </v-list-item-subtitle>
     </v-list-item-content>
@@ -30,7 +37,9 @@ export default {
   props: {
     title:{type:String,default:'UnTitle'},
     fileSize:{type:String,default:'0'},
-    fileCount:{type:String,default:'0 file'},
+    fileSize1:{type:String,default:''},
+    fileCount:{type:String,default:''},
+    fileCount1:{type:String,default:''},
     icon: {type:String,default: 'mdi-decagram-outline'},
     iconColor: {type:String,default: 'blue'},
     titleClass: {type:String,default: 'blue--text'}

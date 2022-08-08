@@ -62,7 +62,6 @@
     },
     created() {
       this.getPollingStation();
-      // this.runAsyncFetchPS();
 
     },
 
@@ -79,8 +78,6 @@
         this.loading = false;
         this.data = data;
         this.CA_WardName = data[0]['CA-WardName']
-        // console.log('this.data0', this.data)
-
 
         // console.log(this.data)
 

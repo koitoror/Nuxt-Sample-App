@@ -25,9 +25,11 @@
                   dark
                   v-bind="attrs"
                   v-on="on"
-                  :title="item[' CountyName '].trim()"
-                  :fileCount="item[' RegisteredVoters '].toLocaleString()"
-                  fileSize="Constituencies"
+                  :title="item['CountyName']"
+                  :fileCount="item['RegisteredVoters'].toLocaleString()"
+                  :fileCount2="item['RegisteredVoters'].toLocaleString()"
+                  :fileSize="item.totalcount_constituency + '  Constituencies '"
+                  :fileSize1="item.totalcount_ps + '  Polling Stations '"
                   color="grey darken-4"
                   flat
                   iconColor="amber"
@@ -62,9 +64,10 @@ export default {
   methods: {
     async getCounties() {
       const { data, error } = await this.$supabase
-        .from('county')
+        // .from('county')
+        .from('county_constituency_count')
         .select()
-      this.data = data  
+      this.data = data
       // console.log(data);
     },
   },

@@ -69,14 +69,17 @@
                   v-on="on"
                   :title="item['CA-WardName']"
                   :fileCount="item['RegisteredVoters'].toLocaleString()"
-                  fileSize="Polling Centre "
+                  :fileCount2="item['RegisteredVoters'].toLocaleString()"
+                  :fileSize="item.totalcount_pc + '  Polling Centres '"
+                  :fileSize1="item.totalcount_ps + '  Polling Stations '"
                   color="grey darken-4"
                   flat
                   iconColor="indigo"
                   titleClass="indigo--text"
                   :to="'/polling_centre/' + item['CA-WardCode']" exact tile
+                >
+                </card-box>
 
-                ></card-box>
 
               </template>
               <!-- <span>After 50% of Registered Votes have been cast</span> -->
@@ -129,15 +132,15 @@
     methods: {
       async getWards() {
         const { data, error } = await this.$supabase
-          .from('ward')
-          // .select()
-          .select(`
-            CA-WardCode,
-            CA-WardName,
-            ConstituencyCode,
-            ConstituencyName,
-            RegisteredVoters
-          `)
+          // .from('ward')
+          .from('polling_centre_count')
+          .select()
+          // .select(`
+          //   CA-WardCode,
+          //   CA-WardName,
+          //   ConstituencyName,
+          //   RegisteredVoters
+          // `)
           .eq('ConstituencyCode', this.ConstituencyCode)
 
         this.data = data

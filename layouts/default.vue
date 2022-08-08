@@ -21,7 +21,7 @@
             >
               <v-list-item-content>
                 <v-avatar size="36" width="64" class="text-center">
-                  <v-icon>{{ item.icon }}</v-icon>
+                  <v-icon :class="item.iconColor">{{ item.icon }}</v-icon>
                 </v-avatar>
               </v-list-item-content>
             </v-list-item>
@@ -88,26 +88,36 @@
         end: new Date("2022-08-09T05:30:00"),
 
         items: [
-          { link: "",
-          icon: "mdi-apps",
-          title: "Dasboard" 
+          { 
+            link: "",
+            icon: "mdi-apps",
+            title: "Dasboard",
+            iconColor: "blue--text"
           },
           {
             link: "county",
             icon: "mdi-bag-personal-outline",
-            title: "County"
+            title: "County",
+            iconColor: "amber--text"
           },
-          { link: "constituency",
-          icon: "mdi-equalizer-outline",
-          title: "Constituency"
+          { 
+            link: "constituency",
+            icon: "mdi-equalizer-outline",
+            title: "Constituency",
+            iconColor: "pink--text"
           },
-          { link: "ward",
-          icon: "mdi-cog-outline",
-          title: "Ward"
+          { 
+            link: "ward",
+            icon: "mdi-cog-outline",
+            title: "Ward",
+            iconColor: "indigo--text"
           },
-          { link: "polling_centre",
-          icon: "mdi-account-check-outline",
-          title: "Polling Station"
+          { 
+            link: "polling_centre",
+            icon: "mdi-account-check-outline",
+            title: "Polling Station",
+            iconColor: "grey--text"
+
           }
         ]
       };
