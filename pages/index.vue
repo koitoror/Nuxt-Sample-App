@@ -81,6 +81,7 @@
             fileSize="100 MB"
             color="grey darken-4"
             flat
+            :to="'/'" exact tile
           ></card-box>
         </v-col>
         <v-col>
@@ -92,6 +93,8 @@
             flat
             iconColor="amber"
             titleClass="amber--text"
+            :to="'/county'" exact tile
+
           ></card-box>
         </v-col>
 
@@ -104,6 +107,8 @@
             flat
             iconColor="pink"
             titleClass="pink--text"
+            :to="'/constituency/' + item['CountyCode']" exact tile
+
           ></card-box>
         </v-col>
 
@@ -116,6 +121,8 @@
             flat
             iconColor="indigo"
             titleClass="ndigo--texti"
+            :to="'/ward/' + item['ConstituencyCode']" exact tile
+
           ></card-box>
         </v-col>
       </v-row>
@@ -188,14 +195,14 @@
 </template>
 
 <script>
-  import CardBox from "~/components/CardBox";
-  import Winner from "~/components/Winner";
+  // import CardBox from "~/components/CardBox";
+  // import Winner from "~/components/Winner";
   export default {
-    components: {
-      CardBox,
-      Winner
+    // components: {
+    //   CardBox,
+    //   Winner
 
-    },
+    // },
   data() {
     return {
       itemsRecents: [
@@ -231,7 +238,11 @@
           subtitle: "image ...",
           size: "2M"
         }
-      ]
+      ],
+      item: {
+        'CountyCode': 27,
+        'ConstituencyCode': 143
+      }
     };
   }
 
