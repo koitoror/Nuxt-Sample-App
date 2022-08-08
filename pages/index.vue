@@ -137,10 +137,11 @@
             </v-btn>
           </v-layout>
 
-          <v-list class="pa-0">
+          <v-list class="pa-1">
             <template v-for="(item, index) in itemsRecents">
               <template>
-                <v-list-item class="px-0" :key="index">
+                <v-list-item class="px-1" :key="index">
+
                   <v-list-item-avatar size="48" color="grey darken-3">
                     <v-icon :color="item.iconColor">{{ item.icon }}</v-icon>
                   </v-list-item-avatar>
@@ -149,16 +150,19 @@
                     <v-list-item-title>
                       {{ item.title }}
                     </v-list-item-title>
+
+                    <v-progress-linear
+                      :value="item.value"
+                      height="10"
+                      striped
+                      :color="item.iconColor"
+                    ></v-progress-linear>
                     <v-list-item-subtitle>
                       {{ item.subtitle }}
                     </v-list-item-subtitle>
                   </v-list-item-content>
-                  <v-progress-linear
-                    :value="item.value"
-                    height="10"
-                    striped
-                    :color="item.iconColor"
-                  ></v-progress-linear>
+
+                  
                   <v-list-item-action>
                     <small class="grey--text">
                       {{item.size}}
@@ -195,56 +199,50 @@
 </template>
 
 <script>
-  // import CardBox from "~/components/CardBox";
-  // import Winner from "~/components/Winner";
-  export default {
-    // components: {
-    //   CardBox,
-    //   Winner
 
-    // },
-  data() {
-    return {
-      itemsRecents: [
-        {
-          icon: "mdi-account-check-outline",
-          iconColor: "deep-orange",
-          title: "Candidate 1",
-          value: "60",
-          subtitle: "image ...",
-          size: "10M"
-        },
-        {
-          icon: "mdi-account-check-outline",
-          iconColor: "lime",
-          title: "Candidate 2",
-          value: "45",
-          subtitle: "image ...",
-          size: "8M"
-        },
-        {
-          icon: "mdi-account-check-outline",
-          iconColor: "light-green darken-4",
-          title: "Candidate 3",
-          value: "20",
-          subtitle: "image ...",
-          size: "4M"
-        },
-        {
-          icon: "mdi-account-check-outline",
-          iconColor: "light-blue",
-          title: "Candidate 4",
-          value: "10",
-          subtitle: "image ...",
-          size: "2M"
+  export default {
+    data() {
+      return {
+        itemsRecents: [
+          {
+            icon: "mdi-account-check-outline",
+            iconColor: "deep-orange",
+            title: "Candidate 1",
+            value: "53",
+            subtitle: "party: AZIMIO ALLIANCE PARTY",
+            size: "10M"
+          },
+          {
+            icon: "mdi-account-check-outline",
+            iconColor: "lime",
+            title: "Candidate 2",
+            value: "40",
+            subtitle: "party: UNITED DEMOCRATIC PARTY",
+            size: "8M"
+          },
+          {
+            icon: "mdi-account-check-outline",
+            iconColor: "light-green darken-4",
+            title: "Candidate 3",
+            value: "4",
+            subtitle: "party: ROOTS PARTY",
+            size: "4M"
+          },
+          {
+            icon: "mdi-account-check-outline",
+            iconColor: "light-blue",
+            title: "Candidate 4",
+            value: "1",
+            subtitle: "party: AGANO PARTY",
+            size: "2M"
+          }
+        ],
+        item: {
+          'CountyCode': 27,
+          'ConstituencyCode': 143
         }
-      ],
-      item: {
-        'CountyCode': 27,
-        'ConstituencyCode': 143
-      }
-    };
-  }
+      };
+    }
 
 };
 </script>

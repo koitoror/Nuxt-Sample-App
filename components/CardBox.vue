@@ -1,6 +1,6 @@
 <template>
 <v-card v-bind="$attrs" v-on="$listeners">
-  <v-list-item>
+  <v-list-item >
     <v-list-item-content class="text-left">
       <v-layout wrap>
         <v-icon size="48" :color="iconColor">{{icon}}</v-icon>
@@ -11,7 +11,7 @@
       </v-layout>
 
       <v-list-item-title class="my-2" :class="titleClass">{{title}}</v-list-item-title>
-      <v-list-item-subtitle>
+      <v-list-item-subtitle class="px-1">
         <v-layout wrap>
           <span>{{fileCount}}</span>
           <v-spacer></v-spacer>
