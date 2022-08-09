@@ -52,8 +52,9 @@
             color="grey darken-4" flat :to="'/'" exact tile></card-box>
         </v-col>
         <v-col>
-          <card-box title="County" fileCount="47 elective offices(G/S/WR)" fileSize="Contestants: 266/ 341/ 360"
-            fileSize1="Losers: 219/ 294/ 313" color="grey darken-4" flat iconColor="amber" titleClass="amber--text"
+          <card-box title="County - (G/ S/ WR)" fileCount="47 elective offices" 
+            fileSize="Contestants: 266/341/360"
+            fileSize1="Losers: 219/294/313" color="grey darken-4" flat iconColor="amber" titleClass="amber--text"
             :to="'/county'" exact tile></card-box>
         </v-col>
 

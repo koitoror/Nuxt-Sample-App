@@ -43,6 +43,9 @@ export default {
       supabaseUrl: process.env.SUPABASE_URL,
       supabaseKey: process.env.SUPABASE_KEY
       
+    }],
+    ['nuxt-cloudflare-analytics', { 
+      token: process.env.WEB_ANALYTICS_TOKEN, // Example 1a2b3v4a5er6ac7r8afd
     }]
   ],
 

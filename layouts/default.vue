@@ -80,11 +80,7 @@
 </template>
 
 <script>
-  import Countdown from "~/components/Countdown";
   export default {
-    components: {
-      Countdown
-    },
     data() {
       return {
         end: new Date("2022-08-09T05:30:00"),
@@ -123,6 +119,11 @@
           }
         ]
       };
+    },
+    methods: {
+      finish() {
+        console.log("finished countdown")
+      },
     }
   };
 </script>
