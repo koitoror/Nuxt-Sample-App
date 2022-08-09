@@ -52,7 +52,8 @@
       <v-spacer class="pa-0 mt-6">
 
         <v-col class="text-center d-flex align-center justify-space-around pa-1">
-          <h4> Elections Countdown</h4>
+          <h4> Tallying ongoing . . .</h4>
+          <!-- <h3> Elections Countdown</h3> -->
         </v-col>
 
         <Countdown :date="end" @onFinish="finish()"></Countdown>
