@@ -15,8 +15,8 @@
         <v-layout wrap>
           <span>{{fileCount}}</span>
           <v-spacer></v-spacer>
-          <b>{{fileSize}}</b>
-          <!-- <small><b>{{fileSize}}</b></small> -->
+          <!-- <b>{{fileSize}}</b> -->
+          <small><b>{{fileSize}}</b></small>
 
         </v-layout>
         <v-layout wrap>

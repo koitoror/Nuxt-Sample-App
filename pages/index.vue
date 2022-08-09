@@ -20,7 +20,9 @@
             :fileSize1="'46, 135  Polling Stations '" color="grey darken-4" flat></card-box>
         </v-col>
         <v-col>
-          <card-box title="Total Votes Cast" fileCount="0" fileSize=" " color="grey darken-4" flat iconColor="amber"
+          <card-box title="Total Votes Cast" fileCount="12,065,803" 
+            fileSize=" Turnout: 56.17%" 
+            color="grey darken-4" flat iconColor="amber"
             titleClass="amber--text"></card-box>
         </v-col>
 
@@ -46,22 +48,25 @@
 
       <v-row>
         <v-col>
-          <card-box title="National" fileCount="1 elective office" fileSize=" " color="grey darken-4" flat :to="'/'"
-            exact tile></card-box>
+          <card-box title="National" fileCount="1 elective office" fileSize="Contestants: 4" fileSize1="Losers: 3"
+            color="grey darken-4" flat :to="'/'" exact tile></card-box>
         </v-col>
         <v-col>
-          <card-box title="County" fileCount="47 elective offices" fileSize=" " color="grey darken-4" flat
-            iconColor="amber" titleClass="amber--text" :to="'/county'" exact tile></card-box>
-        </v-col>
-
-        <v-col>
-          <card-box title="Constituency" fileCount="290 elective offices" fileSize=" " color="grey darken-4" flat
-            iconColor="pink" titleClass="pink--text" :to="'/constituency/' + item['CountyCode']" exact tile></card-box>
+          <card-box title="County" fileCount="47 elective offices(G/S/WR)" fileSize="Contestants: 266/ 341/ 360"
+            fileSize1="Losers: 219/ 294/ 313" color="grey darken-4" flat iconColor="amber" titleClass="amber--text"
+            :to="'/county'" exact tile></card-box>
         </v-col>
 
         <v-col>
-          <card-box title="Ward" fileCount="1450 elective offices" fileSize=" " color="grey darken-4" flat
-            iconColor="indigo" titleClass="ndigo--texti" :to="'/ward/' + item['ConstituencyCode']" exact tile>
+          <card-box title="Constituency" fileCount="290 elective offices" fileSize="Contestants: 2,132"
+            fileSize1="Losers: 1,842" color="grey darken-4" flat iconColor="pink" titleClass="pink--text"
+            :to="'/constituency/' + item['CountyCode']" exact tile></card-box>
+        </v-col>
+
+        <v-col>
+          <card-box title="Ward" fileCount="1450 elective offices" fileSize="Contestants: 12,997"
+            fileSize1="Losers: 11,547" color="grey darken-4" flat iconColor="indigo" titleClass="ndigo--texti"
+            :to="'/ward/' + item['ConstituencyCode']" exact tile>
           </card-box>
         </v-col>
       </v-row>
@@ -145,7 +150,7 @@ export default {
           title: "Candidate 1",
           value: "53",
           subtitle: "party: AZIMIO ALLIANCE PARTY",
-          size: "10M"
+          size: "6.5M"
         },
         {
           icon: "mdi-account-check-outline",
@@ -153,23 +158,23 @@ export default {
           title: "Candidate 2",
           value: "40",
           subtitle: "party: UNITED DEMOCRATIC PARTY",
-          size: "8M"
+          size: "4.8M"
         },
         {
           icon: "mdi-account-check-outline",
           iconColor: "light-green darken-4",
           title: "Candidate 3",
-          value: "4",
+          value: "0.5",
           subtitle: "party: ROOTS PARTY",
-          size: "4M"
+          size: "0.053M"
         },
         {
           icon: "mdi-account-check-outline",
           iconColor: "light-blue",
           title: "Candidate 4",
-          value: "1",
+          value: "0.17",
           subtitle: "party: AGANO PARTY",
-          size: "2M"
+          size: "0.02M"
         }
       ],
       item: {
