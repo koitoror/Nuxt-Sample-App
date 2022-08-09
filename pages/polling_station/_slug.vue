@@ -33,7 +33,7 @@
                   flat
                   iconColor="indigo"
                   titleClass="indigo--text"
-                  :to="'/ward/' + item['ConstituencyCode']" exact tile
+                  :to="'/upload'" exact tile
                 ></card-box>
 
               </template>

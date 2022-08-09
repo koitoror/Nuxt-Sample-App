@@ -24,7 +24,7 @@
         <v-icon>
           mdi-paperclip
         </v-icon>
-        <span class="mt-3">Select an Image</span>
+        <span class="mt-3">Select an Image of IEBC FORM</span>
       </v-row>
     </v-fade-transition>
   </v-card>
