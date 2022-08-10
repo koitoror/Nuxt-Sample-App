@@ -20,8 +20,8 @@
             :fileSize1="'46, 135  Polling Stations '" color="grey darken-4" flat></card-box>
         </v-col>
         <v-col>
-          <card-box title="Total Votes Cast" fileCount="12,065,803" 
-            fileSize=" Turnout: 56.17%" 
+          <card-box title="Total Votes Cast" fileCount="14,487,502" 
+            fileSize=" Turnout: 65.4%" 
             color="grey darken-4" flat iconColor="amber"
             titleClass="amber--text"></card-box>
         </v-col>
