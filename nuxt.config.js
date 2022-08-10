@@ -16,7 +16,15 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    script: [
+      {
+        src: '"https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{"token": "b1bb265b1cdb49c9b0601712c682f4f0"}',
+        async: true,
+        defer: true,
+        body: true,
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
