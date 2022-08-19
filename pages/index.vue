@@ -44,32 +44,35 @@
           </v-tooltip>
 
         </v-col>
+
       </v-row>
 
       <v-row>
         <v-col>
-          <card-box title="National" fileCount="1 elective office" fileSize="Contestants: 4" fileSize1="Losers: 3"
+          <card-box title="National - (President)" fileCount="1 elective office" fileSize="Contestants: 4" fileSize1="Losers: 3"
             color="grey darken-4" flat :to="'/'" exact tile></card-box>
         </v-col>
+
         <v-col>
-          <card-box title="County - (G/ S/ WR)" fileCount="47 elective offices" 
+          <card-box title="County - (Gov./ Sen./ W.Rep)" fileCount="47 elective offices" 
             fileSize="Contestants: 266/341/360"
             fileSize1="Losers: 219/294/313" color="grey darken-4" flat iconColor="amber" titleClass="amber--text"
             :to="'/county'" exact tile></card-box>
         </v-col>
 
         <v-col>
-          <card-box title="Constituency" fileCount="290 elective offices" fileSize="Contestants: 2,132"
+          <card-box title="Constituency - (M.P.)" fileCount="290 elective offices" fileSize="Contestants: 2,132"
             fileSize1="Losers: 1,842" color="grey darken-4" flat iconColor="pink" titleClass="pink--text"
             :to="'/constituency/' + item['CountyCode']" exact tile></card-box>
         </v-col>
 
         <v-col>
-          <card-box title="Ward" fileCount="1450 elective offices" fileSize="Contestants: 12,997"
+          <card-box title="Ward - (M.C.A.)" fileCount="1450 elective offices" fileSize="Contestants: 12,997"
             fileSize1="Losers: 11,547" color="grey darken-4" flat iconColor="indigo" titleClass="ndigo--texti"
             :to="'/ward/' + item['ConstituencyCode']" exact tile>
           </card-box>
         </v-col>
+
       </v-row>
 
       <v-row>
@@ -114,6 +117,7 @@
               </template>
             </template>
           </v-list>
+
         </v-col>
 
         <v-col>

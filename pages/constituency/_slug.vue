@@ -69,7 +69,7 @@ export default {
     async getConstituencies() {
       const { data, error } = await this.$supabase
         // .from('constituency')
-        .from('constituency_ward_count')
+        .from('constituency_ward_count_results')
         .select()
         // .select(`
         //     CountyCode,
@@ -81,7 +81,7 @@ export default {
 
       this.data = data  
       this.CountyName = data[0]['CountyName']  
-      // console.log(data)
+      console.log(data)
     },
   },
 };
