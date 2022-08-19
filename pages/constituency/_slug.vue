@@ -81,7 +81,7 @@ export default {
 
       this.data = data  
       this.CountyName = data[0]['CountyName']  
-      console.log(data)
+      // console.log(data)
     },
   },
 };
