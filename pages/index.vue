@@ -169,7 +169,7 @@ export default {
           icon: "mdi-account-check-outline",
           iconColor: "lime",
           title: "RUTO WILLIAM SAMOEI",
-          value: "40",
+          value: 40,
           subtitle: "party: UNITED DEMOCRATIC PARTY",
           size: "4.8M"
         },
@@ -177,7 +177,7 @@ export default {
           icon: "mdi-account-check-outline",
           iconColor: "deep-orange",
           title: "ODINGA RAILA",
-          value: "53",
+          value: 53,
           subtitle: "party: AZIMIO ALLIANCE PARTY",
           size: "6.5M"
         },
@@ -186,7 +186,7 @@ export default {
           icon: "mdi-account-check-outline",
           iconColor: "light-green darken-4",
           title: "WAJACKOYAH GEORGE LUCHIRI",
-          value: "0.5",
+          value: 0.5,
           subtitle: "party: ROOTS PARTY",
           size: "0.053M"
         },
@@ -194,7 +194,7 @@ export default {
           icon: "mdi-account-check-outline",
           iconColor: "light-blue",
           title: "WAIHIGA DAVID MWAURE",
-          value: "0.17",
+          value: 0.17,
           subtitle: "party: AGANO PARTY",
           size: "0.02M"
         }
@@ -236,10 +236,10 @@ export default {
       this.itemsRecents[2].size = c3
       this.itemsRecents[3].size = c4
 
-      this.itemsRecents[0].value = cValue1
-      this.itemsRecents[1].value = cValue2
-      this.itemsRecents[2].value = cValue3
-      this.itemsRecents[3].value = cValue4
+      this.itemsRecents[0].value = Number(cValue1)
+      this.itemsRecents[1].value = Number(cValue2)
+      this.itemsRecents[2].value = Number(cValue3)
+      this.itemsRecents[3].value = Number(cValue4)
 
       // this.formattedItems();
       // console.log('this.itemsRecent', this.itemsRecents)
