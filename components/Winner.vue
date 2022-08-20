@@ -1,7 +1,8 @@
 <template>
   <v-card
     class="mx-auto"
-    max-width="400"
+    max-width="100vw"
+    width="400"
   >
     <v-list-item two-line>
       <v-list-item-content>
@@ -21,11 +22,16 @@
           pa="4"
         >
           <!-- 00.00&#37; -->
-          49.51&#37;
+          <!-- 49.51&#37; -->
+          {{fileSize}}&#37;
+
         </v-col>
         <v-col cols="6">
             <v-btn icon>
-                <v-icon size="150" color="deep-orange" pa="6">mdi-account-check-outline</v-icon>
+                <!-- <v-icon size="150" color="deep-orange" pa="6">mdi-account-check-outline</v-icon> -->
+                <v-icon size="150" :color="iconColor"  pa="6">mdi-account-check-outline</v-icon>
+                <!-- <v-icon size="150" :color="iconColor"  pa="6">{{icon}}</v-icon> -->
+
             </v-btn>        
 
         </v-col>
@@ -37,7 +43,8 @@
       <v-list-item-icon>
         <v-icon>mdi-send</v-icon>
       </v-list-item-icon>
-      <v-list-item-title>PRESIDENT  ELECT</v-list-item-title>
+      <!-- <v-list-item-title>PRESIDENT  ELECT</v-list-item-title> -->
+      <v-list-item-title>LEADING  CANDIDATE</v-list-item-title>
     </v-list-item>
 
 
@@ -58,5 +65,16 @@
         ],
       }
     },
+    inheritAttrs:false,
+    props: {
+      title:{type:String,default:'UnTitle'},
+      fileSize:{type:String,default:'0'},
+      fileSize1:{type:String,default:''},
+      fileCount:{type:String,default:''},
+      fileCount1:{type:String,default:''},
+      icon: {type:String,default: 'mdi-decagram-outline'},
+      iconColor: {type:String,default: 'blue'},
+      titleClass: {type:String,default: 'blue--text'}
+    }
   }
 </script>

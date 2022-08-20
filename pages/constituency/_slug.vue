@@ -46,6 +46,76 @@
         </template>
       </v-row>
 
+      <v-row>
+        <v-col>
+          <v-layout wrap>
+            <h3 class="grey--text text--darken-3">Votes By Candidate</h3>
+            <v-spacer></v-spacer>
+            <v-btn icon>
+              <v-icon>mdi-arrow-right</v-icon>
+            </v-btn>
+          </v-layout>
+
+          <v-list class="pa-1">
+            <template v-for="(item, index) in itemsRecents">
+              <template>
+                <v-list-item class="px-1" :key="index">
+
+                  <v-list-item-avatar size="48" color="grey darken-3">
+                    <v-icon :color="item.iconColor">{{ item.icon }}</v-icon>
+                  </v-list-item-avatar>
+
+                  <v-list-item-content>
+                    <v-list-item-title>
+                      {{ item.title }}
+                    </v-list-item-title>
+
+                    <v-progress-linear :value="item.value" height="10" striped :color="item.iconColor">
+                    </v-progress-linear>
+                    <v-list-item-subtitle>
+                      {{ item.subtitle }}
+                    </v-list-item-subtitle>
+                  </v-list-item-content>
+
+
+                  <v-list-item-action>
+                    <small class="grey--text">
+                      {{ item.size }}
+                    </small>
+                  </v-list-item-action>
+
+                </v-list-item>
+              </template>
+            </template>
+          </v-list>
+
+        </v-col>
+
+        <v-col>
+          <v-layout wrap>
+            <h3 class="grey--text text--darken-3">Projected Winner</h3>
+            <v-spacer></v-spacer>
+            <v-btn icon>
+              <v-icon>mdi-arrow-down</v-icon>
+            </v-btn>
+          </v-layout>
+
+          <v-list class="pa-0">
+
+            <Winner
+              :fileSize="itemsRecents[0].value"
+              color="grey darken-4"
+              flat
+              :iconColor="itemsRecents[0].iconColor"
+              titleClass="pink--text"
+
+            ></Winner>
+
+          </v-list>
+        </v-col>
+
+      </v-row>
+
     </v-container>
 
 </template>
@@ -55,14 +125,52 @@ export default {
   data() {
     return {
       data: null,
+      data1: null,
       CountyCode: this.$route.params.slug,
-      CountyName: null
+      CountyName: null,
+      itemsRecents: [
+        {
+          icon: "mdi-account-check-outline",
+          iconColor: "lime",
+          title: "RUTO WILLIAM SAMOEI",
+          value: "40",
+          subtitle: "party: UNITED DEMOCRATIC PARTY",
+          size: "4.8M"
+        },
+        {
+          icon: "mdi-account-check-outline",
+          iconColor: "deep-orange",
+          title: "ODINGA RAILA",
+          value: "53",
+          subtitle: "party: AZIMIO ALLIANCE PARTY",
+          size: "6.5M"
+        },
+
+        {
+          icon: "mdi-account-check-outline",
+          iconColor: "light-green darken-4",
+          title: "WAJACKOYAH GEORGE LUCHIRI",
+          value: "0.5",
+          subtitle: "party: ROOTS PARTY",
+          size: "0.053M"
+        },
+        {
+          icon: "mdi-account-check-outline",
+          iconColor: "light-blue",
+          title: "WAIHIGA DAVID MWAURE",
+          value: "0.17",
+          subtitle: "party: AGANO PARTY",
+          size: "0.02M"
+        }
+      ],
 
     };
   },
   created() {
 
     this.getConstituencies();
+    this.getCounties();
+
 
   },
   methods: {
@@ -82,6 +190,72 @@ export default {
       this.data = data  
       this.CountyName = data[0]['CountyName']  
       // console.log(data)
+    },
+
+    async getCounties() {
+      const { data, error } = await this.$supabase
+        // .from('national_count_results')
+        .from('county_constituency_count_results')
+
+        .select()
+        .eq('CountyCode', this.CountyCode)
+
+      let data1 = data[0];
+      // let data1 = data;
+      this.data1 = data1;
+      console.log('data1 ', data1);
+      // this.items()
+      var c1 = this.convertToInternationalFormat(data1['RUTO WILLIAM SAMOEI'])
+      var c2 = this.convertToInternationalFormat(data1['ODINGA RAILA'])
+      var c3 = this.convertToInternationalFormat(data1['WAJACKOYAH GEORGE LUCHIRI'])
+      var c4 = this.convertToInternationalFormat(data1['WAIHIGA DAVID MWAURE'])
+
+      var nationalTurnoutRegistered = (.654 * (data1['RegisteredVoters'])).toFixed(0)
+      console.log('nationalTurnoutRegistered ', nationalTurnoutRegistered);
+      var cValue1 = this.percentage(data1['RUTO WILLIAM SAMOEI'], nationalTurnoutRegistered)
+      var cValue2 = this.percentage(data1['ODINGA RAILA'], nationalTurnoutRegistered)
+      var cValue3 = this.percentage(data1['WAJACKOYAH GEORGE LUCHIRI'], nationalTurnoutRegistered)
+      var cValue4 = this.percentage(data1['WAIHIGA DAVID MWAURE'], nationalTurnoutRegistered)
+
+      this.itemsRecents[0].size = c1
+      this.itemsRecents[1].size = c2
+      // this.itemsRecents[2].size = c3
+      // this.itemsRecents[3].size = c4
+
+      this.itemsRecents[0].value = cValue1
+      this.itemsRecents[1].value = cValue2
+      // this.itemsRecents[2].value = cValue3
+      // this.itemsRecents[3].value = cValue4
+
+      // this.formattedItems();
+      this.itemsRecents.sort((a,b) => (a.value < b.value) ? 1 : ((b.value < a.value) ? -1 : 0));
+
+      console.log('this.itemsRecent', this.itemsRecents)
+    },
+
+    convertToInternationalFormat (labelValue) {
+
+        // Nine Zeroes for Billions
+        return Math.abs(Number(labelValue)) >= 1.0e+9
+
+        ? (Math.abs(Number(labelValue)) / 1.0e+9).toFixed(2) + "B"
+        // Six Zeroes for Millions 
+        : Math.abs(Number(labelValue)) >= 1.0e+6
+
+        ? (Math.abs(Number(labelValue)) / 1.0e+6).toFixed(2) + "M"
+        // Three Zeroes for Thousands
+        : Math.abs(Number(labelValue)) >= 1.0e+3
+
+        ? (Math.abs(Number(labelValue)) / 1.0e+3).toFixed(2) + "K"
+
+        : Math.abs(Number(labelValue));
+
+    },
+
+    percentage(partialValue, totalValue=14487502) {
+      let res =  Number( (100 * partialValue) / totalValue ).toFixed(2);
+      console.log(partialValue, totalValue, res)
+      return res;
     },
   },
 };

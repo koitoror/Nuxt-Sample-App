@@ -136,7 +136,14 @@
 
           <v-list class="pa-0">
 
-            <Winner></Winner>
+            <Winner
+              :fileSize="itemsRecents[0].value"
+              color="grey darken-4"
+              flat
+              :iconColor="itemsRecents[0].iconColor"
+              titleClass="pink--text"
+            
+            ></Winner>
 
           </v-list>
         </v-col>
