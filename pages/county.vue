@@ -70,7 +70,7 @@ export default {
         .from('county_constituency_count_results')
         .select()
       this.data = data
-      console.log(data);
+      // console.log(data);
     },
   },
 };

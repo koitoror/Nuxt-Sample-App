@@ -212,7 +212,7 @@ export default {
         .select()
       let data1 = data[0];
       this.data1 = data1;
-      console.log(data1);
+      // console.log(data1);
       // this.items()
       var c1 = this.convertToInternationalFormat(data1['RUTO WILLIAM SAMOEI'])
       var c2 = this.convertToInternationalFormat(data1['ODINGA RAILA'])

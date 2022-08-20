@@ -17,6 +17,7 @@
           <v-spacer></v-spacer>
           <!-- <b>{{fileSize}}</b> -->
           <small><b>{{fileSize}}</b></small>
+          <!-- <small>{{fileSize}}</small> -->
 
         </v-layout>
         <v-layout wrap>
@@ -48,5 +49,8 @@ export default {
 </script>
 
 <style>
+small {
+  font-size: 9px;
+}
 
 </style>
