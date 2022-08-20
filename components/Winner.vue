@@ -6,7 +6,7 @@
     <v-list-item two-line>
       <v-list-item-content>
         <v-list-item-title class="text-h5">
-          Candidate 1
+          No Candidate
         </v-list-item-title>
         <v-list-item-subtitle>[ Projected Winner ]</v-list-item-subtitle>
         <br>
@@ -20,7 +20,8 @@
           cols="6"
           pa="4"
         >
-          53&#37;
+          <!-- 00.00&#37; -->
+          49.51&#37;
         </v-col>
         <v-col cols="6">
             <v-btn icon>

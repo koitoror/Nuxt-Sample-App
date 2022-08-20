@@ -65,10 +65,12 @@ export default {
     async getCounties() {
       const { data, error } = await this.$supabase
         // .from('county')
-        .from('county_constituency_count')
+        // .from('national_count_results')
+        // .from('county_constituency_count')
+        .from('county_constituency_count_results')
         .select()
       this.data = data
-      // console.log(data);
+      console.log(data);
     },
   },
 };
