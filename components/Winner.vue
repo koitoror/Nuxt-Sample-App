@@ -68,10 +68,7 @@
     inheritAttrs:false,
     props: {
       title:{type:String,default:'UnTitle'},
-      fileSize:{type:String,default:'0'},
-      fileSize1:{type:String,default:''},
-      fileCount:{type:String,default:''},
-      fileCount1:{type:String,default:''},
+      fileSize:{type:Number,default:0},
       icon: {type:String,default: 'mdi-decagram-outline'},
       iconColor: {type:String,default: 'blue'},
       titleClass: {type:String,default: 'blue--text'}

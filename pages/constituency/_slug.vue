@@ -222,8 +222,8 @@ export default {
       // this.itemsRecents[2].size = c3
       // this.itemsRecents[3].size = c4
 
-      this.itemsRecents[0].value = cValue1
-      this.itemsRecents[1].value = cValue2
+      this.itemsRecents[0].value = Number(cValue1)
+      this.itemsRecents[1].value = Number(cValue2)
       // this.itemsRecents[2].value = cValue3
       // this.itemsRecents[3].value = cValue4
 
