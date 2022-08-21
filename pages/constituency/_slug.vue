@@ -133,7 +133,7 @@ export default {
           icon: "mdi-account-check-outline",
           iconColor: "lime",
           title: "RUTO WILLIAM SAMOEI",
-          value: "40",
+          value: 40,
           subtitle: "party: UNITED DEMOCRATIC PARTY",
           size: "4.8M"
         },
@@ -141,7 +141,7 @@ export default {
           icon: "mdi-account-check-outline",
           iconColor: "deep-orange",
           title: "ODINGA RAILA",
-          value: "53",
+          value: 53,
           subtitle: "party: AZIMIO ALLIANCE PARTY",
           size: "6.5M"
         },
@@ -150,7 +150,7 @@ export default {
           icon: "mdi-account-check-outline",
           iconColor: "light-green darken-4",
           title: "WAJACKOYAH GEORGE LUCHIRI",
-          value: "0.5",
+          value: 0.5,
           subtitle: "party: ROOTS PARTY",
           size: "0.053M"
         },
@@ -158,7 +158,7 @@ export default {
           icon: "mdi-account-check-outline",
           iconColor: "light-blue",
           title: "WAIHIGA DAVID MWAURE",
-          value: "0.17",
+          value: 0.17,
           subtitle: "party: AGANO PARTY",
           size: "0.02M"
         }
@@ -203,19 +203,19 @@ export default {
       let data1 = data[0];
       // let data1 = data;
       this.data1 = data1;
-      console.log('data1 ', data1);
+      // console.log('data1 ', data1);
       // this.items()
       var c1 = this.convertToInternationalFormat(data1['RUTO WILLIAM SAMOEI'])
       var c2 = this.convertToInternationalFormat(data1['ODINGA RAILA'])
       var c3 = this.convertToInternationalFormat(data1['WAJACKOYAH GEORGE LUCHIRI'])
       var c4 = this.convertToInternationalFormat(data1['WAIHIGA DAVID MWAURE'])
 
-      var nationalTurnoutRegistered = (.654 * (data1['RegisteredVoters'])).toFixed(0)
-      console.log('nationalTurnoutRegistered ', nationalTurnoutRegistered);
-      var cValue1 = this.percentage(data1['RUTO WILLIAM SAMOEI'], nationalTurnoutRegistered)
-      var cValue2 = this.percentage(data1['ODINGA RAILA'], nationalTurnoutRegistered)
-      var cValue3 = this.percentage(data1['WAJACKOYAH GEORGE LUCHIRI'], nationalTurnoutRegistered)
-      var cValue4 = this.percentage(data1['WAIHIGA DAVID MWAURE'], nationalTurnoutRegistered)
+      var turnoutRegistered = ( (parseFloat(data1['VoterTurnout'])/100) * (data1['RegisteredVoters'])).toFixed(0)
+      // console.log('turnoutRegistered ', turnoutRegistered, parseFloat(data1['VoterTurnout']));
+      var cValue1 = this.percentage(data1['RUTO WILLIAM SAMOEI'], turnoutRegistered)
+      var cValue2 = this.percentage(data1['ODINGA RAILA'], turnoutRegistered)
+      var cValue3 = this.percentage(data1['WAJACKOYAH GEORGE LUCHIRI'], turnoutRegistered)
+      var cValue4 = this.percentage(data1['WAIHIGA DAVID MWAURE'], turnoutRegistered)
 
       this.itemsRecents[0].size = c1
       this.itemsRecents[1].size = c2
@@ -230,7 +230,7 @@ export default {
       // this.formattedItems();
       this.itemsRecents.sort((a,b) => (a.value < b.value) ? 1 : ((b.value < a.value) ? -1 : 0));
 
-      console.log('this.itemsRecent', this.itemsRecents)
+      // console.log('this.itemsRecent', this.itemsRecents)
     },
 
     convertToInternationalFormat (labelValue) {
@@ -254,7 +254,7 @@ export default {
 
     percentage(partialValue, totalValue=14487502) {
       let res =  Number( (100 * partialValue) / totalValue ).toFixed(2);
-      console.log(partialValue, totalValue, res)
+      // console.log(partialValue, totalValue, res)
       return res;
     },
   },

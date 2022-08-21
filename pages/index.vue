@@ -266,7 +266,7 @@ export default {
 
     percentage(partialValue, totalValue=14487502) {
       let res =  Number( (100 * partialValue) / totalValue ).toFixed(2);
-      console.log(partialValue, totalValue, res)
+      // console.log(partialValue, totalValue, res)
       return res;
     },
 
