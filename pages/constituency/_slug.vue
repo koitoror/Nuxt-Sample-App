@@ -219,13 +219,13 @@ export default {
 
       this.itemsRecents[0].size = c1
       this.itemsRecents[1].size = c2
-      // this.itemsRecents[2].size = c3
-      // this.itemsRecents[3].size = c4
+      this.itemsRecents[2].size = c3
+      this.itemsRecents[3].size = c4
 
       this.itemsRecents[0].value = Number(cValue1)
       this.itemsRecents[1].value = Number(cValue2)
-      // this.itemsRecents[2].value = cValue3
-      // this.itemsRecents[3].value = cValue4
+      this.itemsRecents[2].value = cValue3
+      this.itemsRecents[3].value = cValue4
 
       // this.formattedItems();
       this.itemsRecents.sort((a,b) => (a.value < b.value) ? 1 : ((b.value < a.value) ? -1 : 0));
