@@ -59,10 +59,19 @@
         </v-col>
 
         <v-col>
+        
           <card-box title="County - (Gov./ Sen./ W.Rep)" fileCount="47 elective offices" 
             fileSize="Contestants: 266/341/360"
             fileSize1="Losers: 219/294/313" color="grey darken-4" flat iconColor="amber" titleClass="amber--text"
-            :to="'/county'" exact tile></card-box>
+            :to="'/county'" 
+            elevation="24"
+            outlined
+            shaped
+            icon="mdi-check-decagram-outline"
+          exact tile>
+          
+          </card-box>
+
         </v-col>
 
         <v-col>
@@ -302,4 +311,5 @@ export default {
   background-color: #1e1e1e;
   color: #fff;
 }
+
 </style>
