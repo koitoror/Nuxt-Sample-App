@@ -40,6 +40,9 @@
                 <p class="pa-2">
                   Sphere Logic AI
                 </p>
+                <small class="grey--text">
+                  info@elector.ml
+                </small>
               </div>
             </v-list-item-content>
           </v-list-item>
