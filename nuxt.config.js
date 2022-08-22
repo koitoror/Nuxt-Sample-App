@@ -13,7 +13,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'elections in kenya results talling assistant chart' },
       { name: 'format-detection', content: 'telephone=no' },
-      { hid: 'keywords', name: 'keywords', content: 'elections, kenya, iebc, results, talluing-assistant, elector.ml' }
+      { hid: 'keywords', name: 'keywords', content: 'elections, kenya, presidential, national, county, counties, constituencies, ward, polling, center, station, iebc, results, tallying, tallying-assistant, elector.ml' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
