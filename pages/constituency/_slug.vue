@@ -71,6 +71,11 @@
                     </v-list-item-title>
 
                     <v-progress-linear :value="item.value" height="10" striped :color="item.iconColor">
+                    <template>
+                        <small>
+                          <strong> {{ item.value }}% </strong>
+                        </small>
+                      </template>
                     </v-progress-linear>
                     <v-list-item-subtitle>
                       {{ item.subtitle }}
