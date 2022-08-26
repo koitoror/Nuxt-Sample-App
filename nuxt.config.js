@@ -20,7 +20,8 @@ export default {
     ],
     script: [
       {
-        src: '"https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{"token": "b1bb265b1cdb49c9b0601712c682f4f0"}',
+        src: "https://static.cloudflareinsights.com/beacon.min.js",
+        "data-cf-beacon": {"token": process.env.WEB_ANALYTICS_TOKEN || ""},
         async: true,
         defer: true,
         body: true,
