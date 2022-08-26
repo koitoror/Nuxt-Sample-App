@@ -25,6 +25,11 @@ export default {
         defer: true,
         body: true,
       },
+      {
+        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8749787392210545',
+        async: true,
+        crossorigin="anonymous",
+      },
     ],
   },
 
