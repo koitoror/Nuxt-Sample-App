@@ -216,13 +216,20 @@
       </v-row>
 
       <v-row>
-        <BarChart
-          v-if="loaded" 
-          :data="barChartData"
-          :options="barChartOptions"
-          :height="400"
-          :width="1000"
-        />
+          <v-layout wrap>
+            <h3 class="grey--text text--darken-3">Voter Turn-Out By County</h3>
+            <v-spacer></v-spacer>
+            <v-btn icon>
+              <v-icon>mdi-arrow-down</v-icon>
+            </v-btn>
+          </v-layout>
+          <BarChart
+            v-if="loaded" 
+            :data="barChartData"
+            :options="barChartOptions"
+            :height="400"
+            :width="1000"
+          />
       </v-row>
 
     </v-container>
@@ -399,6 +406,8 @@ export default {
         // .from('county_constituency_count')
         .from('county_constituency_count_results')
         .select()
+        .order('VoterTurnout', { ascending: false })
+
 
       // console.log('this.barChartData.labels 0 ', this.barChartData.labels)
       // console.log('this.barChartData.datasets.data 0 ', this.barChartData.datasets[0].data)
