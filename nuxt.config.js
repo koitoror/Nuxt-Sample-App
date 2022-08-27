@@ -27,7 +27,8 @@ export default {
         body: true,
       },
       {
-        src: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-${process.env.GA_AD}`,
+        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+        'client': `ca-pub-${process.env.GA_AD}`,
         async: true,
         crossorigin: "anonymous",
       },
