@@ -216,9 +216,13 @@
       </v-row>
 
       <v-row>
-
-          <!-- <BarChart/> -->
-
+        <BarChart
+          v-if="loaded" 
+          :data="barChartData"
+          :options="barChartOptions"
+          :height="400"
+          :width="1000"
+        />
       </v-row>
 
     </v-container>
@@ -229,6 +233,7 @@
 export default {
   data() {
     return {
+      loaded: false,
       // data1: null,
       data1: {
         totalcount_ps: 46135,
@@ -272,11 +277,61 @@ export default {
         CountyCode: 27,
         ConstituencyCode: 143,
       },
+      barChartData: {
+        labels: [],
+        datasets: [
+          {
+            label: 'Voter TurnOut',
+            data: Array(49).fill(0),
+            backgroundColor: 'rgba(20, 255, 0, 0.3)',
+            borderColor: 'rgba(100, 255, 0, 1)',
+            borderWidth: 2,
+          },
+        ],
+      },
+      barChartOptions: {
+        responsive: true,
+        legend: {
+          display: false,
+        },
+        title: {
+          display: true,
+          // text: "Google analytics data",
+          fontSize: 24,
+          fontColor: '#6b7280',
+        },
+        tooltips: {
+          backgroundColor: '#17BF62',
+        },
+        scales: {
+          xAxes: [
+            {
+              gridLines: {
+                display: true,
+              },
+            },
+          ],
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+                max: 100,
+                min: 0,
+                stepSize: 10,
+              },
+              gridLines: {
+                display: true,
+              },
+            },
+          ],
+        },
+      },
     }
   },
 
   created() {
     this.getNationalResults()
+    this.getCounties()
   },
 
   methods: {
@@ -288,6 +343,7 @@ export default {
       this.data1 = data1
       // console.log(data1);
       // this.items()
+
       var c1 = this.convertToInternationalFormat(data1['RUTO WILLIAM SAMOEI'])
       var c2 = this.convertToInternationalFormat(data1['ODINGA RAILA'])
       var c3 = this.convertToInternationalFormat(
@@ -333,6 +389,36 @@ export default {
       return res
     },
 
+    async getCounties() {
+
+      this.loaded = false
+
+      const { data, error } = await this.$supabase
+        // .from('county')
+        // .from('national_count_results')
+        // .from('county_constituency_count')
+        .from('county_constituency_count_results')
+        .select()
+
+      // console.log('this.barChartData.labels 0 ', this.barChartData.labels)
+      // console.log('this.barChartData.datasets.data 0 ', this.barChartData.datasets[0].data)
+      // let labels = data.map((county) => county.CountyName)
+      // let voterTurnOut = data.map((county) => parseFloat(county.VoterTurnout))
+      // this.barChartData.labels = [...labels]
+      // this.barChartData.datasets[0].data = [...voterTurnOut]
+
+      this.barChartData.labels = data.map(county => county.CountyName)
+      this.barChartData.datasets[0].data = data.map(county => parseFloat(county.VoterTurnout))
+
+      // console.log('this.barChartData.labels ', this.barChartData.labels)
+      // console.log('this.barChartData.datasets.data ', this.barChartData.datasets[0].data)
+      // console.log('this.barChartData.datasets.data ', voterTurnOut)
+
+      // console.log(data);
+      this.loaded = true
+
+    },
+
     // formattedItems() {
     //   return this.itemsRecents.map(item => {
     //     return {
@@ -358,5 +444,31 @@ export default {
 .theme--dark.v-card {
   background-color: #1e1e1e;
   color: #fff;
+}
+
+.title {
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  display: block;
+  font-weight: 400;
+  font-size: 100px;
+  color: #2e495e;
+  letter-spacing: 1px;
+  font-size: 6em;
+}
+.green {
+  color: #00c48d;
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 1em;
+  color: #2e495e;
+  word-spacing: 5px;
+  padding-bottom: 15px;
+}
+
+.links {
+  padding-top: 15px;
 }
 </style>
