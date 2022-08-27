@@ -26,12 +26,12 @@ export default {
         defer: true,
         body: true,
       },
-      {
-        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
-        'data-ad-client': `ca-pub-${process.env.GA_AD}`,
-        async: true,
-        crossorigin: "anonymous",
-      },
+      // {
+      //   src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+      //   'data-ad-client': `ca-pub-${process.env.GA_AD}`,
+      //   async: true,
+      //   crossorigin: "anonymous",
+      // },
     ],
   },
 
