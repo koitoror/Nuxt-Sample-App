@@ -64,7 +64,7 @@
 
       </v-spacer>
       <div>
-        <v-text-field
+        <!-- <v-text-field
           placeholder="Search"
           filled
           small
@@ -73,7 +73,7 @@
           flat
           dense
           prepend-inner-icon="mdi-magnify"
-        ></v-text-field>
+        ></v-text-field> -->
       </div>
       
     </v-app-bar>
@@ -81,6 +81,7 @@
     <v-main>
       <nuxt />
     </v-main>
+    <Footer/>
   </v-app>
 </template>
 

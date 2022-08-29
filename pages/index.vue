@@ -6,9 +6,9 @@
           <v-layout wrap>
             <h3 class="title grey--text">National</h3>
             <v-spacer></v-spacer>
-            <v-btn icon>
+            <!-- <v-btn icon>
               <v-icon>mdi-arrow-right</v-icon>
-            </v-btn>
+            </v-btn> -->
           </v-layout>
         </v-col>
       </v-row>
@@ -149,9 +149,9 @@
           <v-layout wrap>
             <h3 class="grey--text text--darken-3">Votes By Candidate</h3>
             <v-spacer></v-spacer>
-            <v-btn icon>
+            <!-- <v-btn icon>
               <v-icon>mdi-arrow-right</v-icon>
-            </v-btn>
+            </v-btn> -->
           </v-layout>
 
           <v-list class="pa-1">
@@ -198,9 +198,9 @@
           <v-layout wrap>
             <h3 class="grey--text text--darken-3">Projected Winner</h3>
             <v-spacer></v-spacer>
-            <v-btn icon>
+            <!-- <v-btn icon>
               <v-icon>mdi-arrow-down</v-icon>
-            </v-btn>
+            </v-btn> -->
           </v-layout>
 
           <v-list class="pa-0">
@@ -220,7 +220,7 @@
             <h3 class="grey--text text--darken-3">Voter Turn-Out By County</h3>
             <v-spacer></v-spacer>
             <v-btn icon>
-              <v-icon>mdi-arrow-down</v-icon>
+              <!-- <v-icon>mdi-arrow-down</v-icon> -->
             </v-btn>
           </v-layout>
           <BarChart

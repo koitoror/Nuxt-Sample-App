@@ -6,9 +6,13 @@
       <v-row>
         <v-col>
           <v-layout wrap>
+            <v-btn icon @click="$router.back()" >
+              <v-icon>mdi-arrow-left</v-icon>
+            </v-btn>
             <h3 class="title grey--text">Counties in Kenya</h3>
             <v-spacer></v-spacer>
-            <v-btn icon v-on:click.prevent>
+            <!-- <v-btn icon v-on:click.prevent @click="$router.back()" > -->
+            <v-btn icon @click="$router.forward()" >
               <v-icon>mdi-arrow-right</v-icon>
             </v-btn>
           </v-layout>

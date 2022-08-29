@@ -6,9 +6,12 @@
       <v-row>
         <v-col>
           <v-layout wrap>
+            <v-btn icon @click="$router.back()" >
+              <v-icon>mdi-arrow-left</v-icon>
+            </v-btn>
             <h3 class="title grey--text">Constituencies in {{ CountyName }} County</h3>
             <v-spacer></v-spacer>
-            <v-btn icon>
+            <v-btn icon @click="$router.forward()" >
               <v-icon>mdi-arrow-right</v-icon>
             </v-btn>
           </v-layout>
@@ -52,7 +55,7 @@
             <h3 class="grey--text text--darken-3">Votes By Candidate</h3>
             <v-spacer></v-spacer>
             <v-btn icon>
-              <v-icon>mdi-arrow-right</v-icon>
+              <!-- <v-icon>mdi-arrow-right</v-icon> -->
             </v-btn>
           </v-layout>
 
@@ -101,7 +104,7 @@
             <h3 class="grey--text text--darken-3">Projected Winner</h3>
             <v-spacer></v-spacer>
             <v-btn icon>
-              <v-icon>mdi-arrow-down</v-icon>
+              <!-- <v-icon>mdi-arrow-down</v-icon> -->
             </v-btn>
           </v-layout>
 

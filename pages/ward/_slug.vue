@@ -8,13 +8,13 @@
             <h3 class="title grey--text">Wards in {{ ConstituencyName }} Constituency </h3>
             <v-spacer></v-spacer>
             <v-btn icon>
-              <v-icon>mdi-arrow-right</v-icon>
+              <!-- <v-icon>mdi-arrow-right</v-icon> -->
             </v-btn>
           </v-layout>
         </v-col>
       </v-row>
 
-      <div class="text-center">
+      <!-- <div class="text-center">
           <v-progress-circular
             :rotate="360"
             :size="100"
@@ -55,7 +55,7 @@
             {{ value }}
           </v-progress-circular>
 
-      </div>
+      </div> -->
 
       <v-row>
         <template v-for="(item, index) in data">

@@ -8,7 +8,7 @@
             <h3 class="title grey--text">Ward</h3>
             <v-spacer></v-spacer>
             <v-btn icon>
-              <v-icon>mdi-arrow-right</v-icon>
+              <!-- <v-icon>mdi-arrow-right</v-icon> -->
             </v-btn>
           </v-layout>
         </v-col>
