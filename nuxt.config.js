@@ -26,6 +26,11 @@ export default {
         defer: true,
         body: true,
       },
+      {
+        src: '//pl17650227.highperformancegate.com/3f/b4/a4/3fb4a490b15e3028af41d4e030fa5b18.js',
+        type: 'text/javascript',
+        body: true,
+      },
       // {
       //   src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
       //   'data-ad-client': `ca-pub-${process.env.GA_AD}`,

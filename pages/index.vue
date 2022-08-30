@@ -9,7 +9,6 @@
             <!-- <v-btn icon>
               <v-icon>mdi-arrow-right</v-icon>
             </v-btn> -->
-            
           </v-layout>
         </v-col>
       </v-row>
