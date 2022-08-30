@@ -36,7 +36,7 @@
 
         </v-col>
         <v-col>
-          <!-- <script type="text/javascript">
+          <script type="text/javascript">
             atOptions = {
               'key' : 'fd11d5bb032fcc509a1507d1a8f257e5',
               'format' : 'iframe',
@@ -45,7 +45,7 @@
               'params' : {}
             };
             document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformats.com/fd11d5bb032fcc509a1507d1a8f257e5/invoke.js"></scr' + 'ipt>');
-          </script> -->
+          </script>
         </v-col>
       </v-row>
     </v-card-text>
