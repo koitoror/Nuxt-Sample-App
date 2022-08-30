@@ -29,6 +29,7 @@ export default {
       {
         src: '//pl17650227.highperformancegate.com/3f/b4/a4/3fb4a490b15e3028af41d4e030fa5b18.js',
         type: 'text/javascript',
+        async: true,
         body: true,
       },
       // {
