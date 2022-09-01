@@ -20,7 +20,7 @@
             fileCount="22,152,144"
             :fileSize="'47  Counties '"
             :fileSize1="
-              data1['totalcount_ps'].toLocaleString() + '  Polling Stations '
+              candidates['totalcount_ps'].toLocaleString() + '  Polling Stations '
             "
             color="grey darken-4"
             flat
@@ -145,6 +145,7 @@
       </v-row>
 
       <v-row>
+
         <v-col>
           <v-layout wrap>
             <h3 class="grey--text text--darken-3">Votes By Candidate</h3>
@@ -213,23 +214,48 @@
             ></Winner>
           </v-list>
         </v-col>
+
       </v-row>
 
       <v-row>
-          <v-layout wrap>
-            <h3 class="grey--text text--darken-3">Voter Turn-Out By County</h3>
-            <v-spacer></v-spacer>
-            <v-btn icon>
-              <!-- <v-icon>mdi-arrow-down</v-icon> -->
-            </v-btn>
-          </v-layout>
-          <BarChart
-            v-if="loaded" 
-            :data="barChartData"
-            :options="barChartOptions"
-            :height="400"
-            :width="1000"
-          />
+  
+        <v-col>
+            <v-layout wrap>
+              <h3 class="grey--text text--darken-3">Voter Turn-Out By County {{rank}} {{numCounties}}</h3>
+              <v-spacer></v-spacer>
+              <v-btn icon>
+                <!-- <v-icon>mdi-arrow-down</v-icon> -->
+              </v-btn>
+
+              <v-btn
+                :loading="loading"
+                v-on:click.prevent 
+                @click="toggleRank(!asc)">
+                <!-- Get {{ranki -->
+                  Get {{rank == "Bottom" ? "Top" : "Bottom"
+                }} 25 (HALF)
+              </v-btn>
+              <v-spacer></v-spacer>
+
+              <v-btn
+                :loading="loading"
+                v-on:click.prevent 
+                @click="toggleRank(!asc, 49)">
+                <!-- Get {{ranki -->
+                  Get {{rank == "Bottom" ? "Top" : "Bottom"
+                }} 47+2 (ALL)
+              </v-btn>
+            </v-layout>
+            <BarChart
+              v-if="loaded" 
+              :data="barChartData"
+              :options="barChartOptions"
+              :max-height="450"
+              :height="338"
+              :width="338"
+            />
+        </v-col>
+
       </v-row>
 
     </v-container>
@@ -241,8 +267,12 @@ export default {
   data() {
     return {
       loaded: false,
-      // data1: null,
-      data1: {
+      loading: false,
+      rank: "Top",
+      asc: false,
+      numCounties: 24,
+      // candidates: null,
+      candidates: {
         totalcount_ps: 46135,
       },
       itemsRecents: [
@@ -342,26 +372,46 @@ export default {
   },
 
   methods: {
+
+    async toggleRank(asc, numCounties) {
+
+        this.loading = true;
+        await this.getCounties(asc, numCounties);
+
+        // console.log('this.asc', this.asc);
+
+        // console.log('this.rank  - ', this.rank)
+        this.rank = !this.asc ? "Top" : "Bottom"
+        // console.log('this.rank -- ', this.rank)
+
+        this.loading = false;
+        // this.loaded = false
+
+
+    },
+
     async getNationalResults() {
       const { data, error } = await this.$supabase
         .from('national_count_results')
         .select()
-      let data1 = data[0]
-      this.data1 = data1
-      // console.log(data1);
+
+
+      let candidates = data[0]
+      this.candidates = candidates
+      // console.log(candidates);
       // this.items()
 
-      var c1 = this.convertToInternationalFormat(data1['RUTO WILLIAM SAMOEI'])
-      var c2 = this.convertToInternationalFormat(data1['ODINGA RAILA'])
+      var c1 = this.convertToInternationalFormat(candidates['RUTO WILLIAM SAMOEI'])
+      var c2 = this.convertToInternationalFormat(candidates['ODINGA RAILA'])
       var c3 = this.convertToInternationalFormat(
-        data1['WAJACKOYAH GEORGE LUCHIRI']
+        candidates['WAJACKOYAH GEORGE LUCHIRI']
       )
-      var c4 = this.convertToInternationalFormat(data1['WAIHIGA DAVID MWAURE'])
+      var c4 = this.convertToInternationalFormat(candidates['WAIHIGA DAVID MWAURE'])
 
-      var cValue1 = this.percentage(data1['RUTO WILLIAM SAMOEI'])
-      var cValue2 = this.percentage(data1['ODINGA RAILA'])
-      var cValue3 = this.percentage(data1['WAJACKOYAH GEORGE LUCHIRI'])
-      var cValue4 = this.percentage(data1['WAIHIGA DAVID MWAURE'])
+      var cValue1 = this.percentage(candidates['RUTO WILLIAM SAMOEI'])
+      var cValue2 = this.percentage(candidates['ODINGA RAILA'])
+      var cValue3 = this.percentage(candidates['WAJACKOYAH GEORGE LUCHIRI'])
+      var cValue4 = this.percentage(candidates['WAIHIGA DAVID MWAURE'])
 
       this.itemsRecents[0].size = c1
       this.itemsRecents[1].size = c2
@@ -396,32 +446,30 @@ export default {
       return res
     },
 
-    async getCounties() {
+    async getCounties(asc = false, numCounties = 25) {
+
+      this.asc = asc
+      this.numCounties = numCounties
+      // console.log('asc', asc);
+      // console.log('this.asc', this.asc);
 
       this.loaded = false
 
       const { data, error } = await this.$supabase
-        // .from('county')
-        // .from('national_count_results')
-        // .from('county_constituency_count')
+
         .from('county_constituency_count_results')
         .select()
-        .order('VoterTurnout', { ascending: false })
+        .order('VoterTurnout', { ascending: asc })
+        // .limit(24)
+        .limit(numCounties)
 
 
-      // console.log('this.barChartData.labels 0 ', this.barChartData.labels)
-      // console.log('this.barChartData.datasets.data 0 ', this.barChartData.datasets[0].data)
-      // let labels = data.map((county) => county.CountyName)
-      // let voterTurnOut = data.map((county) => parseFloat(county.VoterTurnout))
-      // this.barChartData.labels = [...labels]
-      // this.barChartData.datasets[0].data = [...voterTurnOut]
 
       this.barChartData.labels = data.map(county => county.CountyName)
       this.barChartData.datasets[0].data = data.map(county => parseFloat(county.VoterTurnout))
 
       // console.log('this.barChartData.labels ', this.barChartData.labels)
-      // console.log('this.barChartData.datasets.data ', this.barChartData.datasets[0].data)
-      // console.log('this.barChartData.datasets.data ', voterTurnOut)
+      // console.log('this.barChartData.datasets[0].data ', this.barChartData.datasets[0].data)
 
       // console.log(data);
       this.loaded = true
@@ -433,7 +481,7 @@ export default {
     //     return {
     //       ...item,
     //       title: "ODINGA RAILA",
-    //       value: Math.round(item.value * this.data1.totalcount_ps / this.data1["RegisteredVoters"])
+    //       value: Math.round(item.value * this.candidates.totalcount_ps / this.candidates["RegisteredVoters"])
     //     }
     //   })
     // }
@@ -444,40 +492,46 @@ export default {
 </script>
 
 <style scoped>
-.theme--dark.v-sheet {
-  background-color: #1e1e1e;
-  border-color: #1e1e1e;
-  color: #fff;
-}
+  .theme--dark.v-sheet {
+    background-color: #1e1e1e;
+    border-color: #1e1e1e;
+    color: #fff;
+  }
 
-.theme--dark.v-card {
-  background-color: #1e1e1e;
-  color: #fff;
-}
+  .theme--dark.v-card {
+    background-color: #1e1e1e;
+    color: #fff;
+  }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 400;
-  font-size: 100px;
-  color: #2e495e;
-  letter-spacing: 1px;
-  font-size: 6em;
-}
-.green {
-  color: #00c48d;
-}
+  .title {
+    font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    display: block;
+    font-weight: 400;
+    font-size: 100px;
+    color: #2e495e;
+    letter-spacing: 1px;
+    font-size: 6em;
+  }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 1em;
-  color: #2e495e;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
+  .green {
+    color: #00c48d;
+  }
 
-.links {
-  padding-top: 15px;
-}
+  .subtitle {
+    font-weight: 300;
+    font-size: 1em;
+    color: #2e495e;
+    word-spacing: 5px;
+    padding-bottom: 15px;
+  }
+
+  .links {
+    padding-top: 15px;
+  }
+
+  .button {
+    transition: 0.3s;
+  }
+
 </style>
