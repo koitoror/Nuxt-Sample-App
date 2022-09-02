@@ -221,38 +221,40 @@
   
         <v-col>
             <v-layout wrap>
-              <h3 class="grey--text text--darken-3">Voter Turn-Out By County {{rank}} {{numCounties}}</h3>
+              <h3 class="grey--text text--darken-3 pb-4">Voter Turn-Out By County {{rank}} {{numCounties}}</h3>
               <v-spacer></v-spacer>
               <v-btn icon>
                 <!-- <v-icon>mdi-arrow-down</v-icon> -->
               </v-btn>
 
-              <v-btn
-                :loading="loading"
-                v-on:click.prevent 
-                @click="toggleRank(!asc)">
-                <!-- Get {{ranki -->
-                  Get {{rank == "Bottom" ? "Top" : "Bottom"
-                }} 25 (HALF)
-              </v-btn>
-              <v-spacer></v-spacer>
+              <v-row class="pl-3">
+              
+                <v-btn
+                  :loading="loading"
+  
+                  v-on:click.prevent 
+                  @click="toggleRank(!asc, 25, !loading, false)">
+                  <!-- Get {{ranki -->
+                    Get {{rank == "Bottom" ? "Top" : "Bottom"
+                  }} 25 (HALF)
+                </v-btn>
+                <v-spacer></v-spacer>
+                <v-btn
+                  :loading="loading1"
+                  v-on:click.prevent 
+                  @click="toggleRank(!asc, 49, false,!loading1)">
+                  <!-- Get {{ranki -->
+                    Get {{rank == "Bottom" ? "Top" : "Bottom"
+                  }} 47+2 (ALL)
+                </v-btn>
+              </v-row>
 
-              <v-btn
-                :loading="loading"
-                v-on:click.prevent 
-                @click="toggleRank(!asc, 49)">
-                <!-- Get {{ranki -->
-                  Get {{rank == "Bottom" ? "Top" : "Bottom"
-                }} 47+2 (ALL)
-              </v-btn>
             </v-layout>
             <BarChart
               v-if="loaded" 
               :data="barChartData"
               :options="barChartOptions"
-              :max-height="450"
-              :height="338"
-              :width="338"
+              :styles="{height: '370px', width: '338px'}"
             />
         </v-col>
 
@@ -268,6 +270,7 @@ export default {
     return {
       loaded: false,
       loading: false,
+      loading1: false,
       rank: "Top",
       asc: false,
       numCounties: 24,
@@ -322,7 +325,7 @@ export default {
             data: Array(49).fill(0),
             backgroundColor: 'rgba(20, 255, 0, 0.3)',
             borderColor: 'rgba(100, 255, 0, 1)',
-            borderWidth: 2,
+            borderWidth: 1,
           },
         ],
       },
@@ -334,7 +337,7 @@ export default {
         title: {
           display: true,
           // text: "Google analytics data",
-          fontSize: 24,
+          fontSize: 18,
           fontColor: '#6b7280',
         },
         tooltips: {
@@ -373,9 +376,11 @@ export default {
 
   methods: {
 
-    async toggleRank(asc, numCounties) {
+    async toggleRank(asc, numCounties, loading, loading1) {
 
-        this.loading = true;
+        // this.loading = true;
+        this.loading = loading;
+        this.loading1 = loading1;
         await this.getCounties(asc, numCounties);
 
         // console.log('this.asc', this.asc);
@@ -385,6 +390,7 @@ export default {
         // console.log('this.rank -- ', this.rank)
 
         this.loading = false;
+        this.loading1 = false;
         // this.loaded = false
 
 
@@ -532,6 +538,10 @@ export default {
 
   .button {
     transition: 0.3s;
+  }
+
+  .v-main__wrap {
+    height: 400px !important;
   }
 
 </style>
