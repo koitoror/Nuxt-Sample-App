@@ -19,19 +19,19 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
-      {
-        src: "https://static.cloudflareinsights.com/beacon.min.js",
-        "data-cf-beacon": {"token": process.env.WEB_ANALYTICS_TOKEN || ""},
-        async: true,
-        defer: true,
-        body: true,
-      },
-      {
-        src: '//pl17650227.highperformancegate.com/3f/b4/a4/3fb4a490b15e3028af41d4e030fa5b18.js',
-        type: 'text/javascript',
-        async: true,
-        body: true,
-      },
+      // {
+      //   src: "https://static.cloudflareinsights.com/beacon.min.js",
+      //   "data-cf-beacon": {"token": process.env.WEB_ANALYTICS_TOKEN || ""},
+      //   async: true,
+      //   defer: true,
+      //   body: true,
+      // },
+      // {
+      //   src: '//pl17650227.highperformancegate.com/3f/b4/a4/3fb4a490b15e3028af41d4e030fa5b18.js',
+      //   type: 'text/javascript',
+      //   async: true,
+      //   body: true,
+      // },
       // {
       //   src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
       //   'data-ad-client': `ca-pub-${process.env.GA_AD}`,
@@ -61,6 +61,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/sitemap',
     ['nuxt-supabase', {
       supabaseUrl: process.env.SUPABASE_URL,
       supabaseKey: process.env.SUPABASE_KEY
@@ -96,6 +97,35 @@ export default {
   },
 
   target: 'static', // default is 'server'
+
+  
+  sitemap: {
+    hostname: 'https://elector.ml',
+    path: '/sitemap.xml',
+    cacheTime: 1000 * 60 * 60 * 2,
+    trailingSlash: true,
+    gzip: true,
+    exclude: [
+      '/doc/**',
+      '/upload'
+    ],
+    routes: [
+      '/county',
+      '/constituency/*',
+      '/ward/*',
+      '/Polling_centre/*',
+      '/polling_station/*',
+      '/faq/*',
+      '/privacy-policy',
+      '/terms-and-conditions',
+      // {
+      //   url: '/sign-in',
+      //   changefreq: 'daily',
+      //   priority: 1,
+      //   lastmod: '2017-06-30T13:30:00.000Z'
+      // }
+    ]
+  },
   
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
