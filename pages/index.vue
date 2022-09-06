@@ -221,7 +221,7 @@
   
         <v-col>
             <v-layout wrap>
-              <h3 class="grey--text text--darken-3 pb-4">Voter Turn-Out By County {{rank}} {{numCounties}}</h3>
+              <h3 class="grey--text text--darken-3 pb-4">Voter Turn-Out By County {{rank}} {{numCounties == 49 ? "For All" : numCounties }}</h3>
               <v-spacer></v-spacer>
               <v-btn icon>
                 <!-- <v-icon>mdi-arrow-down</v-icon> -->
@@ -381,6 +381,8 @@ export default {
         // this.loading = true;
         this.loading = loading;
         this.loading1 = loading1;
+        this.barChartData.datasets[0].data = Array(numCounties).fill(10)
+        this.barChartData.labels = Array(numCounties).fill("Loading ...")
         await this.getCounties(asc, numCounties);
 
         // console.log('this.asc', this.asc);
