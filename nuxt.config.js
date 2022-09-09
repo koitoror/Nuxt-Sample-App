@@ -94,10 +94,11 @@ export default {
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    defaultAssets: {
-      font: false,
-      icons: 'fa'
-    },
+    // defaultAssets: {
+    //   font: false,
+    //   icons: 'fa'
+    // },
+    defaultAssets: false,
     icons: {
       iconfont: 'mdi' || 'fa'
     },

@@ -34,7 +34,7 @@
                           <v-text-field
                             label="Email"
                             name="Email"
-                            prepend-icon="email"
+                            prepend-icon="mdi-email"
                             type="text"
                             color="teal accent-3"
                           />
@@ -43,7 +43,7 @@
                             id="password"
                             label="Password"
                             name="password"
-                            prepend-icon="lock"
+                            prepend-icon="mdi-lock-outline"
                             type="password"
                             color="teal accent-3"
                           />
@@ -134,7 +134,6 @@
                             type="password"
                             color="teal accent-3"
                           />
-
                         </v-form>
                       </v-card-text>
                       <div class="text-center mt-n5">
@@ -154,7 +153,6 @@
   </v-app>
 </template>
 
-
 <script>
 export default {
   data: () => ({
@@ -163,12 +161,10 @@ export default {
   props: {
     source: String,
   },
-
 }
 </script>
 
 <style scoped>
-  @import '@fortawesome/fontawesome-free/css/all.css';
-  @import '@mdi/font/css/materialdesignicons.css'
-
+@import '@fortawesome/fontawesome-free/css/all.css';
+@import '@mdi/font/css/materialdesignicons.css';
 </style>
