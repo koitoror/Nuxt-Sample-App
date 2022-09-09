@@ -98,9 +98,10 @@ export default {
     //   font: false,
     //   icons: 'fa'
     // },
-    defaultAssets: false,
+    // defaultAssets: false,
     icons: {
-      iconfont: 'mdi' || 'fa'
+      // iconfont: 'md' || 'fa'  // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
+
     },
     theme: {
       dark: true,

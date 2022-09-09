@@ -34,7 +34,7 @@
                           <v-text-field
                             label="Email"
                             name="Email"
-                            prepend-icon="mdi-email"
+                            prepend-icon="mdi-email-outline"
                             type="text"
                             color="teal accent-3"
                           />
@@ -114,14 +114,14 @@
                           <v-text-field
                             label="Name"
                             name="Name"
-                            prepend-icon="person"
+                            prepend-icon="mdi-account-circle"
                             type="text"
                             color="teal accent-3"
                           />
                           <v-text-field
                             label="Email"
                             name="Email"
-                            prepend-icon="email"
+                            prepend-icon="mdi-email-outline"
                             type="text"
                             color="teal accent-3"
                           />
@@ -130,7 +130,7 @@
                             id="password"
                             label="Password"
                             name="password"
-                            prepend-icon="mdi-map-marker"
+                            prepend-icon="mdi-lock-outline"
                             type="password"
                             color="teal accent-3"
                           />
@@ -166,5 +166,6 @@ export default {
 
 <style scoped>
 @import '@fortawesome/fontawesome-free/css/all.css';
-@import '@mdi/font/css/materialdesignicons.css';
+@import 'material-design-icons-iconfont/dist/material-design-icons.css';
+
 </style>
