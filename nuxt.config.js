@@ -1,5 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -45,9 +46,20 @@ export default {
   css: [
   ],
 
+  // defaultAssets: {
+  //   font: true,
+  //   icons: 'md'
+  // },
+  // icons: {
+  //   // iconfont: 'md',
+  //   iconfont: 'md' || 'fa'
+
+  // },
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
   ],
+
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -56,18 +68,20 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    // 'material-design-icons-iconfont',
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
     ['nuxt-supabase', {
       supabaseUrl: process.env.SUPABASE_URL,
       supabaseKey: process.env.SUPABASE_KEY
-      
+
     }],
-    ['nuxt-cloudflare-analytics', { 
+    ['nuxt-cloudflare-analytics', {
       token: process.env.WEB_ANALYTICS_TOKEN, // Example 1a2b3v4a5er6ac7r8afd
     }]
   ],
@@ -80,10 +94,18 @@ export default {
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    defaultAssets: {
+      font: false,
+      icons: 'fa'
+    },
+    icons: {
+      iconfont: 'mdi' || 'fa'
+    },
     theme: {
       dark: true,
       themes: {
         dark: {
+          // background: colors.shades.white, // If not using lighten/darken, use base to return hex
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
@@ -91,14 +113,18 @@ export default {
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3
-        } 
+        },
+        light: {
+          background: colors.grey.lighten2, // Not automatically applied
+
+        }
       }
     }
   },
 
   target: 'static', // default is 'server'
 
-  
+
   sitemap: {
     hostname: 'https://elector.ml',
     path: '/sitemap.xml',
@@ -126,7 +152,7 @@ export default {
       // }
     ]
   },
-  
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     cache: false

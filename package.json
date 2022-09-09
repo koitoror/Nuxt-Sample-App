@@ -9,6 +9,12 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@amcharts/amcharts4": "^4.10.27",
+    "@amcharts/amcharts4-geodata": "^4.1.23",
+    "@amcharts/amcharts5": "^5.2.21",
+    "@amcharts/amcharts5-geodata": "^5.0.3",
+    "@fortawesome/fontawesome-free": "^6.2.0",
+    "@mdi/font": "^7.0.96",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/sitemap": "^2.4.0",
     "chart.js": "^2.9.4",
@@ -17,6 +23,7 @@
     "express": "^4.17.1",
     "express-jwt": "^6.1.0",
     "knex": "^0.95.11",
+    "material-design-icons-iconfont": "^6.7.0",
     "nuxt": "^2.15.8",
     "nuxt-cloudflare-analytics": "^0.1.5",
     "nuxt-supabase": "^2.3.1",
